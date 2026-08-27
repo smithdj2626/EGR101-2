@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EngInspire | First-Year Engineering Project Finder & Feasibility Lab</title>
+    <title>EngInspire | Human-Centered Engineering Project Finder & Feasibility Lab</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,7 +20,11 @@
                             700: '#4338ca',
                             900: '#312e81',
                         },
-                        emeraldCustom: '#10b981',
+                        hcd: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
                     }
                 }
             }
@@ -44,8 +48,8 @@
         }
         .glass-card-hover:hover {
             transform: translateY(-3px);
-            border-color: rgba(99, 102, 241, 0.4);
-            box-shadow: 0 12px 24px -10px rgba(99, 102, 241, 0.25);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 12px 24px -10px rgba(245, 158, 11, 0.2);
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -59,53 +63,55 @@
 <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/20">
-                <i class="fa-solid fa-compass-drafting"></i>
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-indigo-600 to-brand-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-amber-500/20">
+                <i class="fa-solid fa-people-hold"></i>
             </div>
             <div>
                 <h1 class="font-bold text-lg text-white leading-tight flex items-center gap-2">
-                    EngiInspire
-                    <span class="text-xs font-normal px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">15-Wk Feasible</span>
+                    EngiInspire HCD
+                    <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Human-Centered</span>
                 </h1>
-                <p class="text-xs text-slate-400 hidden sm:block">First-Year Engineering Design Project Finder & Scope Guard</p>
+                <p class="text-xs text-slate-400 hidden sm:block">First-Year User-Centric Engineering Projects & Scope Guard</p>
             </div>
         </div>
 
         <!-- Navigation Tabs -->
         <nav class="flex items-center gap-1 sm:gap-2">
             <button onclick="switchTab('explorer')" id="tab-explorer" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 bg-brand-600 text-white shadow-md shadow-brand-600/30">
-                <i class="fa-solid fa-lightbulb"></i> <span class="hidden md:inline">Idea</span> Library
+                <i class="fa-solid fa-users"></i> <span class="hidden md:inline">HCD</span> Projects
             </button>
             <button onclick="switchTab('ai')" id="tab-ai" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 text-slate-300 hover:bg-slate-800 hover:text-white">
-                <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> AI Studio
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> HCD AI Studio
             </button>
             <button onclick="switchTab('matrix')" id="tab-matrix" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 text-slate-300 hover:bg-slate-800 hover:text-white relative">
                 <i class="fa-solid fa-table-cells"></i> Decision Matrix
-                <span id="matrix-badge" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-emerald-500 text-slate-950 font-bold text-[10px] rounded-full items-center justify-center">0</span>
+                <span id="matrix-badge" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-amber-500 text-slate-950 font-bold text-[10px] rounded-full items-center justify-center">0</span>
             </button>
             <button onclick="switchTab('roadmap')" id="tab-roadmap" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 text-slate-300 hover:bg-slate-800 hover:text-white">
-                <i class="fa-solid fa-calendar-days"></i> 15-Wk Plan
+                <i class="fa-solid fa-timeline"></i> 15-Wk HCD Process
             </button>
         </nav>
     </div>
 </header>
 
-<div class="bg-gradient-to-r from-slate-800 via-indigo-950 to-slate-800 border-b border-indigo-500/20 py-2.5 px-4">
+<div class="bg-gradient-to-r from-slate-900 via-amber-950/40 to-slate-900 border-b border-amber-500/20 py-2.5 px-4">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between text-xs text-slate-300 gap-2">
         <div class="flex items-center gap-2">
-            <span class="text-amber-400 font-semibold"><i class="fa-solid fa-circle-check"></i> Course Parameters Verified:</span>
-            <span>15 Weeks • 1–2 hrs/week per student (~15–30 total hrs) • Prototyping & Testing Required</span>
+            <span class="text-amber-400 font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-heart-pulse"></i> Human-Centered Focus:
+            </span>
+            <span>Every project pairs real target user personas with measurable usability & ergonomics metrics.</span>
         </div>
         <div class="flex items-center gap-4 text-slate-400">
-            <span class="text-cyan-400 font-medium"><i class="fa-solid fa-water mr-1"></i> NMC & NW Michigan Regional Context Available</span>
-            <span><i class="fa-solid fa-vial text-emerald-400 mr-1"></i> Quantitative Testing</span>
+            <span class="text-cyan-400 font-medium"><i class="fa-solid fa-location-dot mr-1"></i> Regional & Campus User Contexts</span>
+            <span><i class="fa-solid fa-clock text-emerald-400 mr-1"></i> 15 Wks (1-2 hrs/wk per student)</span>
         </div>
     </div>
 </div>
 
 <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
 
-    <!-- TAB 1: CURATED IDEA LIBRARY -->
+    <!-- TAB 1: CURATED HCD IDEA LIBRARY -->
     <div id="view-explorer" class="tab-content space-y-6">
         <!-- Search and Filter Bar -->
         <div class="glass-card p-4 sm:p-5 rounded-2xl border border-slate-800 shadow-xl space-y-4">
@@ -113,13 +119,13 @@
                 <!-- Search Input -->
                 <div class="relative w-full md:w-96">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                    <input type="text" id="search-input" oninput="filterIdeas()" placeholder="Search topics, NMC, cherries, water, winter..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
+                    <input type="text" id="search-input" oninput="filterIdeas()" placeholder="Search user persona, pain point, mobility, orchard workers, students..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
                 </div>
                 
                 <!-- Quick Counters -->
                 <div class="flex items-center gap-3 text-xs text-slate-400 w-full md:w-auto justify-between md:justify-end">
                     <span id="idea-count" class="font-medium text-slate-200">Showing projects</span>
-                    <button onclick="resetFilters()" class="text-brand-400 hover:text-brand-300 transition-colors flex items-center gap-1">
+                    <button onclick="resetFilters()" class="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1">
                         <i class="fa-solid fa-rotate-left"></i> Reset Filters
                     </button>
                 </div>
@@ -127,13 +133,16 @@
 
             <!-- Filter Pills Group -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2 border-t border-slate-800/80">
-                <!-- Region / Context -->
+                <!-- User Persona Type -->
                 <div>
-                    <label class="block text-[11px] font-semibold text-cyan-400 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-map-pin mr-1"></i> Regional Scope</label>
-                    <select id="filter-region" onchange="filterIdeas()" class="w-full bg-slate-950 border border-cyan-800/50 rounded-lg px-3 py-1.5 text-xs text-cyan-200 focus:outline-none focus:border-cyan-500">
-                        <option value="all">All Locations</option>
-                        <option value="NW Michigan">Northwestern Lower MI / NMC</option>
-                        <option value="General">General Campus / Universal</option>
+                    <label class="block text-[11px] font-semibold text-amber-400 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-user text-amber-400 mr-1"></i> Target User Group</label>
+                    <select id="filter-user-group" onchange="filterIdeas()" class="w-full bg-slate-950 border border-amber-800/50 rounded-lg px-3 py-1.5 text-xs text-amber-200 focus:outline-none focus:border-amber-500">
+                        <option value="all">All Target Users</option>
+                        <option value="Field Workers & Farmers">Agricultural Workers & Farmers</option>
+                        <option value="Persons with Reduced Dexterity/Mobility">Individuals with Mobility/Dexterity Needs</option>
+                        <option value="Campus Students & Staff">Campus Students, Staff & Facilities</option>
+                        <option value="Outdoor Recreationists & Divers">Water & Outdoor Community Members</option>
+                        <option value="Winter Pedestrians & Commuters">Winter Commuters & Pedestrians</option>
                     </select>
                 </div>
 
@@ -142,46 +151,44 @@
                     <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Discipline</label>
                     <select id="filter-discipline" onchange="filterIdeas()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-brand-500">
                         <option value="all">All Disciplines</option>
+                        <option value="Biomedical/Assistive">Biomedical & Assistive Ergonomics</option>
                         <option value="Mechanical">Mechanical Engineering</option>
-                        <option value="Electrical/Computer">Electrical & Computer</option>
+                        <option value="Electrical/Computer">Electrical & Microcontrollers</option>
                         <option value="Civil/Environmental">Civil & Environmental</option>
-                        <option value="Biomedical/Assistive">Biomedical & Assistive Tech</option>
-                        <option value="Industrial/Process">Industrial & Process Systems</option>
+                        <option value="Industrial/Process">Industrial & Workflow Systems</option>
                     </select>
                 </div>
 
-                <!-- Project Type -->
+                <!-- Region / Context -->
                 <div>
-                    <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Project Domain</label>
-                    <select id="filter-type" onchange="filterIdeas()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-brand-500">
-                        <option value="all">Physical Objects & Processes</option>
-                        <option value="Physical Prototype">Physical Prototype</option>
-                        <option value="Process/System">Process / System Redesign</option>
-                        <option value="Hybrid">Hybrid Physical & Digital</option>
+                    <label class="block text-[11px] font-semibold text-cyan-400 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-map-pin mr-1"></i> Regional Context</label>
+                    <select id="filter-region" onchange="filterIdeas()" class="w-full bg-slate-950 border border-cyan-800/50 rounded-lg px-3 py-1.5 text-xs text-cyan-200 focus:outline-none focus:border-cyan-500">
+                        <option value="all">All Locations</option>
+                        <option value="NW Michigan">Northwestern Lower MI / NMC</option>
+                        <option value="General">General Campus / Universal</option>
                     </select>
                 </div>
 
-                <!-- Budget / Materials -->
+                <!-- Material Level -->
                 <div>
-                    <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Material Level</label>
+                    <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Material Budget</label>
                     <select id="filter-materials" onchange="filterIdeas()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-brand-500">
                         <option value="all">All Resource Levels</option>
                         <option value="Low Cost ($0-$15)">Low Cost ($0-$15 / Recyclables)</option>
-                        <option value="Moderate ($15-$35)">Moderate ($15-$35 / 3D Print / Hardware)</option>
-                        <option value="Sensor/Microcontroller">Sensors / Microcontrollers (Micro:bit / Arduino)</option>
+                        <option value="Moderate ($15-$35)">Moderate ($15-$35 / Ergonomic Grips / Hardware)</option>
+                        <option value="Sensor/Microcontroller">Sensors & Feedback Devices (Micro:bit)</option>
                     </select>
                 </div>
 
-                <!-- Primary Theme -->
+                <!-- Usability & HCD Focus -->
                 <div>
-                    <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Focus Theme</label>
+                    <label class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">HCD Design Goal</label>
                     <select id="filter-theme" onchange="filterIdeas()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-brand-500">
-                        <option value="all">All Focus Areas</option>
-                        <option value="Sustainability">Sustainability & Great Lakes</option>
-                        <option value="Agriculture & Food">Agriculture, Orchards & Viticulture</option>
-                        <option value="Winter & Infrastructure">Winter Safety & Infrastructure</option>
-                        <option value="Accessibility">Accessibility & Healthcare</option>
-                        <option value="Campus Improvement">Campus & Community</option>
+                        <option value="all">All Design Goals</option>
+                        <option value="Accessibility & Ergonomics">Accessibility & Strain Reduction</option>
+                        <option value="User Safety & Comfort">Safety, Warmth & Comfort</option>
+                        <option value="Task Speed & Usability">Usability & Task Time Reduction</option>
+                        <option value="Community & Sustainability">Community Awareness & Shared Space</option>
                     </select>
                 </div>
             </div>
@@ -193,18 +200,18 @@
         </div>
     </div>
 
-    <!-- TAB 2: AI PROJECT GENERATOR & FEASIBILITY CHECKER -->
+    <!-- TAB 2: HCD AI STUDIO -->
     <div id="view-ai" class="tab-content hidden space-y-6">
-        <div class="glass-card p-6 rounded-2xl border border-brand-500/20 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="glass-card p-6 rounded-2xl border border-amber-500/20 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div class="max-w-3xl space-y-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-semibold border border-brand-500/30">
-                    <i class="fa-solid fa-sparkles"></i> Gemini 3 Flash Powered Feasibility Engine
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold border border-amber-500/30">
+                    <i class="fa-solid fa-hand-holding-heart"></i> Human-Centered AI Generator & Scope Guard
                 </div>
-                <h2 class="text-2xl font-bold text-white">AI Project Tailor & Feasibility Analyzer</h2>
+                <h2 class="text-2xl font-bold text-white">Human-Centered Project Studio & Feasibility Engine</h2>
                 <p class="text-slate-300 text-sm leading-relaxed">
-                    Enter your available lab tools, team interests, or an initial raw project idea. The AI will design a 15-week project brief with strict scope guardrails tuned specifically for 1–2 hours per week (~15–30 hours total execution budget).
+                    Define a specific user persona, their lived physical/cognitive frustration, and your lab setup. The AI will engineer a human-centric project brief that ensures student teams conduct user observation, co-design, and usability testing within a 15-week budget (1–2 hrs/wk per student).
                 </p>
             </div>
 
@@ -214,93 +221,75 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-300 mb-1">Mode</label>
                         <div class="grid grid-cols-2 gap-2 p-1 bg-slate-900 rounded-lg border border-slate-800">
-                            <button id="mode-btn-gen" onclick="setAIMode('generate')" class="py-1.5 text-xs font-medium rounded-md bg-brand-600 text-white transition-all">
-                                Custom Idea Generator
+                            <button id="mode-btn-gen" onclick="setAIMode('generate')" class="py-1.5 text-xs font-medium rounded-md bg-amber-600 text-white transition-all">
+                                Generate HCD Ideas
                             </button>
                             <button id="mode-btn-check" onclick="setAIMode('check')" class="py-1.5 text-xs font-medium rounded-md text-slate-400 hover:text-slate-200 transition-all">
-                                Feasibility Inspector
+                                Audit Idea for HCD & Feasibility
                             </button>
                         </div>
                     </div>
 
-                    <!-- Regional Scope Preset Selector -->
+                    <!-- Regional & User Context Selector -->
                     <div class="p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-lg space-y-1.5">
                         <label class="block text-xs font-semibold text-cyan-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-location-dot text-cyan-400"></i> Institutional / Regional Context
+                            <i class="fa-solid fa-location-dot text-cyan-400"></i> Context & Stakeholder Environment
                         </label>
                         <select id="ai-region-context" class="w-full bg-slate-900 border border-cyan-800/60 rounded-md px-2.5 py-1.5 text-xs text-cyan-100 focus:border-cyan-400 focus:outline-none">
-                            <option value="nmc">Northwestern Michigan College (NMC) & Grand Traverse Region Focus</option>
-                            <option value="general">General / Standard College Campus Context</option>
+                            <option value="nmc">NMC & Grand Traverse (Cherry farm workers, winter commuters, Bay water users)</option>
+                            <option value="general">General University Campus (Dorm residents, accessibility, dining hall users)</option>
                         </select>
-                        <p class="text-[10px] text-slate-400 leading-tight">
-                            NMC context includes Great Lakes water studies, cherry/vineyard agriculture, lake-effect winter, aviation/maritime, and Traverse City campus features.
-                        </p>
                     </div>
 
                     <!-- Mode A: Generator Input -->
                     <div id="ai-input-gen-group" class="space-y-3">
-                        <div class="grid grid-cols-2 gap-2">
-                            <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1"><i class="fa-solid fa-list-ol text-brand-400 mr-1"></i> Idea Batch Count</label>
-                                <select id="ai-idea-count" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-brand-300 font-semibold focus:border-brand-500 focus:outline-none">
-                                    <option value="1">1 Detailed Project Brief</option>
-                                    <option value="3" selected>3 Custom Project Options</option>
-                                    <option value="5">5 Broad Project Options</option>
-                                    <option value="8">8 Rapid Brainstorm Ideas</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1"><i class="fa-solid fa-clock text-emerald-400 mr-1"></i> Time Budget / Wk</label>
-                                <select id="ai-hours-budget" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
-                                    <option value="1-2 hrs/week (~15-25 hrs total)">1–2 hrs/wk (Strict ~20h)</option>
-                                    <option value="3-4 hrs/week (~45-60 hrs total)">3–4 hrs/wk (Moderate ~50h)</option>
-                                    <option value="5+ hrs/week (~75+ hrs total)">5+ hrs/wk (Intensive Lab)</option>
-                                </select>
-                            </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-amber-400 mb-1 flex items-center gap-1">
+                                <i class="fa-solid fa-user-tag"></i> Primary Target User Persona
+                            </label>
+                            <input type="text" id="ai-user-persona" placeholder="e.g. Seasonal vineyard workers with wrist fatigue, wheelchair users on icy paths, elderly orchard owners..." class="w-full bg-slate-900 border border-amber-500/40 rounded-lg px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-amber-400 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-amber-300 mb-1 flex items-center gap-1">
+                                <i class="fa-solid fa-face-frown"></i> Lived User Pain Point / Frustration
+                            </label>
+                            <input type="text" id="ai-user-painpoint" placeholder="e.g. Cold fingers prevent setting equipment, high physical force causes joint pain, long waits in winter weather..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:border-amber-400 focus:outline-none">
                         </div>
 
                         <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <label class="block text-xs font-medium text-slate-300 mb-1">Target Discipline</label>
-                                <select id="ai-discipline" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
-                                    <option value="Any / Multidisciplinary">Any / Multidisciplinary</option>
+                                <select id="ai-discipline" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-amber-500 focus:outline-none">
+                                    <option value="Biomedical & Assistive Ergonomics">Biomedical & Assistive Ergonomics</option>
                                     <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                    <option value="Electrical & Computer Engineering">Electrical & Computer</option>
-                                    <option value="Civil & Environmental Engineering">Civil & Environmental</option>
-                                    <option value="Biomedical & Assistive Engineering">Biomedical & Assistive</option>
-                                    <option value="Industrial & Systems Process Engineering">Industrial & Systems</option>
+                                    <option value="Electrical & Microcontroller Feedback">Electrical & Feedback</option>
+                                    <option value="Civil & Environmental Safety">Civil & Environmental</option>
+                                    <option value="Industrial & Workflow Design">Industrial & Workflows</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-slate-300 mb-1">Team Structure</label>
-                                <select id="ai-team-size" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
-                                    <option value="Small Team (2-3 Students)">Small Team (2-3)</option>
-                                    <option value="Full Team (4-5 Students)">Full Team (4-5)</option>
-                                    <option value="Individual Student">Individual Project</option>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Weekly Time Budget</label>
+                                <select id="ai-hours-budget" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-amber-500 focus:outline-none">
+                                    <option value="1-2 hrs/week (~15-25 hrs total)">1–2 hrs/wk (Strict ~20h)</option>
+                                    <option value="3-4 hrs/week (~45-60 hrs total)">3–4 hrs/wk (Moderate ~50h)</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1"><i class="fa-solid fa-bullseye text-indigo-400 mr-1"></i> Primary Theme Focus</label>
-                            <select id="ai-theme-focus" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
-                                <option value="All Domains">All Focus Domains</option>
-                                <option value="Sustainability & Great Lakes / Water">Sustainability, Water & Great Lakes</option>
-                                <option value="Agriculture, Orchards & Viticulture">Agriculture, Orchards & Viticulture</option>
-                                <option value="Winter Safety & Cold Climate Infrastructure">Winter Safety & Infrastructure</option>
-                                <option value="Accessibility, Healthcare & Assistive Tech">Accessibility & Healthcare</option>
-                                <option value="Smart Campus & Process Efficiency">Campus & Industrial Process</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Primary Interests / Challenge Area</label>
-                            <input type="text" id="ai-interest" placeholder="e.g. Cherry orchard frost, Boardman River microplastics, dock de-icing, drone sensors..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-brand-500 focus:outline-none">
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Available Lab Tools & Fabrication Gear</label>
-                            <input type="text" id="ai-resources" placeholder="e.g. Cardboard, 3D printer, Micro:bit, water testing kits, basic hand tools" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-brand-500 focus:outline-none">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Idea Count</label>
+                                <select id="ai-idea-count" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-amber-300 font-semibold focus:border-amber-500 focus:outline-none">
+                                    <option value="1">1 Deeply Detailed HCD Brief</option>
+                                    <option value="3" selected>3 Distinct User-Focused Briefs</option>
+                                    <option value="5">5 Broad User Options</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Available Lab Tools</label>
+                                <input type="text" id="ai-resources" placeholder="e.g. Cardboard, foam, 3D printing, Micro:bits, hand tools" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-amber-500 focus:outline-none">
+                            </div>
                         </div>
                     </div>
 
@@ -308,30 +297,30 @@
                     <div id="ai-input-check-group" class="space-y-3 hidden">
                         <div>
                             <label class="block text-xs font-medium text-slate-300 mb-1">Describe Student's Proposed Project Idea</label>
-                            <textarea id="ai-custom-idea" rows="5" placeholder="e.g. We want to design an automated dock bubbler monitor for Grand Traverse Bay that prevents ice buildup using thermal sensors..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-brand-500 focus:outline-none"></textarea>
+                            <textarea id="ai-custom-idea" rows="5" placeholder="e.g. We want to design a heated handle attachment for campus maintenance staff who clean snow off outdoor benches early in the morning..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-amber-500 focus:outline-none"></textarea>
                         </div>
                     </div>
 
-                    <button id="ai-submit-btn" onclick="runAIGenerator()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-xs tracking-wide shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2 transition-all">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Feasible Project Brief
+                    <button id="ai-submit-btn" onclick="runAIGenerator()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-600 via-brand-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white font-semibold text-xs tracking-wide shadow-lg shadow-amber-600/20 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Human-Centered Briefs
                     </button>
                 </div>
 
                 <!-- AI Output Display -->
-                <div class="lg:col-span-7 bg-slate-950 p-5 rounded-xl border border-slate-800 min-h-[380px] flex flex-col justify-between">
+                <div class="lg:col-span-7 bg-slate-950 p-5 rounded-xl border border-slate-800 min-h-[420px] flex flex-col justify-between">
                     <div id="ai-output-placeholder" class="h-full flex flex-col items-center justify-center text-center p-8 text-slate-500 space-y-3">
-                        <div class="w-16 h-16 rounded-full bg-slate-900 flex items-center justify-center text-slate-600 text-2xl">
-                            <i class="fa-solid fa-robot"></i>
+                        <div class="w-16 h-16 rounded-full bg-slate-900 flex items-center justify-center text-amber-500/70 text-2xl border border-amber-500/20">
+                            <i class="fa-solid fa-user-astronaut"></i>
                         </div>
-                        <p class="text-sm">Configure parameters on the left and click Generate to produce a calibrated, 15-week project roadmap.</p>
+                        <p class="text-sm">Enter a target user persona and their pain point on the left to generate human-centered engineering project briefs.</p>
                     </div>
 
                     <!-- AI Loader -->
                     <div id="ai-loader" class="hidden h-full flex flex-col items-center justify-center text-center p-8 space-y-4">
-                        <div class="w-12 h-12 border-4 border-brand-500/20 border-t-brand-500 rounded-full animate-spin"></div>
+                        <div class="w-12 h-12 border-4 border-amber-500/20 border-t-amber-500 rounded-full animate-spin"></div>
                         <div>
-                            <p class="text-sm font-semibold text-slate-200">Analyzing Project Scope & Feasibility...</p>
-                            <p class="text-xs text-slate-400 mt-1">Calibrating against 1-2 hours/week first-year student benchmarks</p>
+                            <p class="text-sm font-semibold text-slate-200">Evaluating User Needs & Scope Feasibility...</p>
+                            <p class="text-xs text-amber-400 mt-1">Balancing Empathy Observation & Quantitative Usability Metrics</p>
                         </div>
                     </div>
 
@@ -345,7 +334,7 @@
                         <span id="ai-status-summary" class="text-[11px] text-slate-400">Generated by Gemini 3 Flash</span>
                         <div class="flex items-center gap-2">
                             <button onclick="copyAIResult()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs flex items-center gap-1.5 transition-colors">
-                                <i class="fa-solid fa-copy"></i> Copy All Diffs
+                                <i class="fa-solid fa-copy"></i> Copy Brief Text
                             </button>
                         </div>
                     </div>
@@ -354,23 +343,23 @@
         </div>
     </div>
 
-    <!-- TAB 3: PUGH DECISION MATRIX -->
+    <!-- TAB 3: PUGH DECISION MATRIX (HCD Weighted) -->
     <div id="view-matrix" class="tab-content hidden space-y-6">
         <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-6">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-table-cells text-brand-400"></i> Engineering Decision (Pugh) Matrix
+                        <i class="fa-solid fa-table-cells text-amber-400"></i> Human-Centered Pugh Decision Matrix
                     </h2>
                     <p class="text-xs text-slate-400 mt-1">
-                        Select and evaluate up to 3 candidate project topics against course feasibility and learning outcome criteria.
+                        Evaluate project candidates balancing target user impact, physical ergonomics/usability, quantitative testing, and 15-week feasibility.
                     </p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="clearMatrix()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs transition-colors">
                         Clear All
                     </button>
-                    <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-500 text-white text-xs font-medium transition-colors flex items-center gap-1">
+                    <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-medium transition-colors flex items-center gap-1">
                         <i class="fa-solid fa-print"></i> Export / Print
                     </button>
                 </div>
@@ -407,63 +396,63 @@
                         <!-- Criteria rows injected dynamically -->
                     </tbody>
                     <tfoot>
-                        <tr class="bg-slate-950 font-bold text-slate-100 border-t-2 border-brand-500/40">
+                        <tr class="bg-slate-950 font-bold text-slate-100 border-t-2 border-amber-500/40">
                             <td class="p-4 text-sm">TOTAL WEIGHTED SCORE</td>
                             <td class="p-4 text-center text-slate-400">-</td>
-                            <td id="score-0" class="p-4 text-center text-base border-l border-slate-800 text-brand-300">0.0</td>
-                            <td id="score-1" class="p-4 text-center text-base border-l border-slate-800 text-brand-300">0.0</td>
-                            <td id="score-2" class="p-4 text-center text-base border-l border-slate-800 text-brand-300">0.0</td>
+                            <td id="score-0" class="p-4 text-center text-base border-l border-slate-800 text-amber-300">0.0</td>
+                            <td id="score-1" class="p-4 text-center text-base border-l border-slate-800 text-amber-300">0.0</td>
+                            <td id="score-2" class="p-4 text-center text-base border-l border-slate-800 text-amber-300">0.0</td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
 
             <!-- Recommendation Alert -->
-            <div id="matrix-recommendation" class="p-4 rounded-xl bg-indigo-950/50 border border-indigo-500/30 text-xs text-slate-300 flex items-start gap-3">
-                <i class="fa-solid fa-circle-info text-brand-400 text-base mt-0.5"></i>
+            <div id="matrix-recommendation" class="p-4 rounded-xl bg-amber-950/40 border border-amber-500/30 text-xs text-slate-300 flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-amber-400 text-base mt-0.5"></i>
                 <div>
-                    <span class="font-bold text-white">How to use this matrix:</span> Score each idea from 1 (Poor) to 5 (Excellent). Criteria are weighted according to your course's constraints. The topic with the highest score balances realistic workload, quantitative testing ability, and student engagement.
+                    <span class="font-bold text-white">Human-Centered Scoring Tip:</span> A high HCD score means the design directly relieves a genuine user pain point, can be tested safely with real feedback or ergonomic measurements, and remains feasible within student hours.
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- TAB 4: 15-WEEK ROADMAP & WORKLOAD GUIDE -->
+    <!-- TAB 4: 15-WEEK HCD PROCESS ROADMAP -->
     <div id="view-roadmap" class="tab-content hidden space-y-6">
         <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-6">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
                 <div>
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-calendar-check text-emerald-400"></i> Standard 15-Week Design Project Timeline
+                        <i class="fa-solid fa-people-arrows text-amber-400"></i> Human-Centered Design 15-Week Timeline
                     </h2>
                     <p class="text-xs text-slate-400 mt-1">
-                        Calibrated for 1 to 2 hours per student per week (approx. 15–30 total student-hours).
+                        Structured around Stanford d.school / ISO Human-Centered Design phases (Empathize, Define, Ideate, Prototype, Test).
                     </p>
                 </div>
                 <div class="flex items-center gap-2 text-xs">
-                    <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        <i class="fa-solid fa-clock mr-1"></i> Phase Benchmarks
+                    <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold">
+                        <i class="fa-solid fa-heart-circle-check mr-1"></i> User-First Milestones
                     </span>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                 <!-- Phase 1 -->
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col justify-between">
+                <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/30 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] uppercase tracking-wider font-bold text-brand-400">Weeks 1-3</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Phase 1</span>
+                            <span class="text-[10px] uppercase tracking-wider font-bold text-amber-400">Weeks 1-3</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">Empathize & Define</span>
                         </div>
-                        <h3 class="font-bold text-slate-100 text-sm mb-2">Problem & Scope Definition</h3>
+                        <h3 class="font-bold text-slate-100 text-sm mb-2">User Needs & Pain Point Mapping</h3>
                         <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc pl-3">
-                            <li>Identify target user or process pain point</li>
-                            <li>Formulate measurable target metrics</li>
-                            <li>Review existing solutions & prior art</li>
+                            <li>Identify specific target user persona</li>
+                            <li>Conduct 1-2 brief user interviews or observations</li>
+                            <li>Draft "How Might We..." problem statement</li>
                         </ul>
                     </div>
-                    <div class="mt-4 pt-2 border-t border-slate-800 text-[10px] text-slate-500">
-                        Budget: ~3-4 hrs total
+                    <div class="mt-4 pt-2 border-t border-slate-800 text-[10px] text-amber-400/80 font-medium">
+                        Deliverable: User Persona & Needs Sheet
                     </div>
                 </div>
 
@@ -472,17 +461,17 @@
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-[10px] uppercase tracking-wider font-bold text-brand-400">Weeks 4-6</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Phase 2</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Ideate & Co-Design</span>
                         </div>
-                        <h3 class="font-bold text-slate-100 text-sm mb-2">Concept Generation & Matrix</h3>
+                        <h3 class="font-bold text-slate-100 text-sm mb-2">Concept Generation & Pugh Matrix</h3>
                         <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc pl-3">
-                            <li>Brainstorm 3 distinct design concepts</li>
-                            <li>Perform Pugh Decision Matrix evaluation</li>
-                            <li>Create low-fidelity paper/CAD sketch</li>
+                            <li>Brainstorm 3 human-focused concept sketches</li>
+                            <li>Score concepts in HCD Pugh Decision Matrix</li>
+                            <li>Gather quick user feedback on top concept sketch</li>
                         </ul>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-800 text-[10px] text-slate-500">
-                        Budget: ~4-5 hrs total
+                        Deliverable: Matrix & Low-Fi Paper Mockup
                     </div>
                 </div>
 
@@ -491,17 +480,17 @@
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-[10px] uppercase tracking-wider font-bold text-brand-400">Weeks 7-9</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Phase 3</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Rapid Prototyping</span>
                         </div>
-                        <h3 class="font-bold text-slate-100 text-sm mb-2">Initial Prototype Assembly</h3>
+                        <h3 class="font-bold text-slate-100 text-sm mb-2">Ergonomic Physical Prototype</h3>
                         <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc pl-3">
-                            <li>Procure low-cost materials / 3D prints</li>
-                            <li>Build Version 1.0 (physical rig or flowchart)</li>
-                            <li>Safety & hazard self-assessment</li>
+                            <li>Build physical rig with focus on user touchpoints</li>
+                            <li>Cardboard/3D print/Micro:bit tactile interfaces</li>
+                            <li>Safety & ergonomic hazard assessment</li>
                         </ul>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-800 text-[10px] text-slate-500">
-                        Budget: ~5-6 hrs total
+                        Deliverable: Working Prototype v1.0
                     </div>
                 </div>
 
@@ -510,17 +499,17 @@
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-[10px] uppercase tracking-wider font-bold text-brand-400">Weeks 10-12</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Phase 4</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Usability Testing</span>
                         </div>
-                        <h3 class="font-bold text-slate-100 text-sm mb-2">Quantitative Testing & Refinement</h3>
+                        <h3 class="font-bold text-slate-100 text-sm mb-2">Quantitative & User Trials</h3>
                         <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc pl-3">
-                            <li>Run 3+ controlled test trials</li>
-                            <li>Collect data (time, load, voltage, flow)</li>
-                            <li>Iterate prototype design based on data</li>
+                            <li>Measure task completion time & error rates</li>
+                            <li>Collect user comfort / effort ratings (1-5 scale)</li>
+                            <li>Refine physical grip, buttons, or workflow based on data</li>
                         </ul>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-800 text-[10px] text-slate-500">
-                        Budget: ~5-6 hrs total
+                        Deliverable: Usability Test Data Chart
                     </div>
                 </div>
 
@@ -529,38 +518,38 @@
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-[10px] uppercase tracking-wider font-bold text-brand-400">Weeks 13-15</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">Phase 5</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-brand-500/20 text-brand-300">User Validation</span>
                         </div>
-                        <h3 class="font-bold text-slate-100 text-sm mb-2">Final Deliverable & Showcase</h3>
+                        <h3 class="font-bold text-slate-100 text-sm mb-2">Final Showcase & Hand-off</h3>
                         <ul class="text-[11px] text-slate-400 space-y-1.5 list-disc pl-3">
-                            <li>Compile engineering notebook data</li>
-                            <li>Prepare poster or 5-min slide deck</li>
-                            <li>Final prototype demonstration</li>
+                            <li>Demonstrate prototype with live user task test</li>
+                            <li>Present before-vs-after user impact data</li>
+                            <li>Compile HCD Engineering Design Notebook</li>
                         </ul>
                     </div>
                     <div class="mt-4 pt-2 border-t border-slate-800 text-[10px] text-slate-500">
-                        Budget: ~4-5 hrs total
+                        Deliverable: Final Poster & Live Demo
                     </div>
                 </div>
             </div>
 
-            <!-- Instructor Scope Management Tips -->
+            <!-- Instructor HCD Coaching Tips -->
             <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
                 <h3 class="font-bold text-slate-200 text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-graduation-cap text-indigo-400"></i> Instructor Scope Guardrails for 1-2 Hours/Week
+                    <i class="fa-solid fa-graduation-cap text-amber-400"></i> Scope Management for First-Year HCD Projects
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-400">
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <strong class="text-slate-200 block mb-1">Encourage Fast Iteration</strong>
-                        Prefer cardboard, foam board, hot glue, or Micro:bits over custom PCB design or complex metal machining which lead to bottlenecks.
+                        <strong class="text-slate-200 block mb-1">Simulated User Testing</strong>
+                        If access to external users is limited, students can test prototypes on classmates acting out specific user constraints (e.g. wearing thick winter gloves or using one-handed restriction).
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <strong class="text-slate-200 block mb-1">Focus on Key Testing Metrics</strong>
-                        Require students to measure at least ONE quantitative metric (e.g. "reduced time by 22%", "carried 500g load", "filtered 90% turbidity").
+                        <strong class="text-slate-200 block mb-1">Combine Physical + Human Metrics</strong>
+                        Require students to report both a hard physical metric (e.g. force in Newtons, weight in grams) AND a human usability metric (e.g. task completion seconds, user comfort score).
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <strong class="text-slate-200 block mb-1">Process vs. Product</strong>
-                        For process redesign projects (e.g., dining hall or campus parking workflow), student prototypes can consist of physical mockups, simulated queues, or detailed flow diagrams.
+                        <strong class="text-slate-200 block mb-1">Keep Prototyping Low-Fidelity</strong>
+                        Focus energy on ergonomics and human fit (foam, 3D printed touchpoints, adjusted levers) rather than high-cost manufacturing or complex coding.
                     </div>
                 </div>
             </div>
@@ -568,15 +557,15 @@
     </div>
 </main>
 
-<!-- DETAILED TOPIC MODAL -->
+<!-- DETAILED HCD TOPIC MODAL -->
 <div id="modal-backdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
         <!-- Modal Header -->
         <div class="p-5 bg-slate-950 border-b border-slate-800 flex items-start justify-between">
             <div class="space-y-1">
                 <div class="flex items-center gap-2 flex-wrap">
+                    <span id="modal-user-group" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">Target User</span>
                     <span id="modal-discipline" class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30">Discipline</span>
-                    <span id="modal-type" class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-slate-800 text-slate-300">Type</span>
                     <span id="modal-region" class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-cyan-950 text-cyan-300 border border-cyan-500/30">Region</span>
                 </div>
                 <h3 id="modal-title" class="text-xl font-bold text-white">Project Title</h3>
@@ -587,52 +576,61 @@
         </div>
 
         <!-- Modal Body -->
-        <div class="p-6 overflow-y-auto space-y-6 text-xs text-slate-300 flex-1">
-            <!-- Overview section -->
-            <div class="space-y-2">
-                <h4 class="font-semibold text-slate-100 uppercase tracking-wider text-[11px]">Problem Statement</h4>
-                <p id="modal-problem" class="text-slate-300 leading-relaxed bg-slate-950 p-3.5 rounded-xl border border-slate-800/80"></p>
+        <div class="p-6 overflow-y-auto space-y-5 text-xs text-slate-300 flex-1">
+            <!-- Target User & Pain Point section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-amber-500/30 space-y-1">
+                    <h4 class="font-bold text-amber-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                        <i class="fa-solid fa-user"></i> Target User Persona
+                    </h4>
+                    <p id="modal-user-persona" class="text-slate-200 leading-relaxed font-medium"></p>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                    <h4 class="font-bold text-rose-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart-crack"></i> Lived Frustration / Pain Point
+                    </h4>
+                    <p id="modal-painpoint" class="text-slate-300 leading-relaxed"></p>
+                </div>
             </div>
 
+            <!-- Scope & Limits -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Scope & Limits -->
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                     <h4 class="font-semibold text-emerald-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                        <i class="fa-solid fa-circle-check"></i> Feasible Scope (15-30 Total Hrs)
+                        <i class="fa-solid fa-circle-check"></i> Feasible HCD Scope (15-30 Total Hrs)
                     </h4>
                     <p id="modal-scope" class="text-slate-300 leading-relaxed"></p>
                 </div>
 
-                <!-- Scope Creep Warning -->
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                     <h4 class="font-semibold text-amber-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Out-of-Scope (Avoid Scope Creep)
+                        <i class="fa-solid fa-triangle-exclamation"></i> Scope Creep to Avoid
                     </h4>
                     <p id="modal-avoid" class="text-slate-300 leading-relaxed"></p>
                 </div>
             </div>
 
-            <!-- Prototyping & Testing -->
+            <!-- Prototyping & Dual Testing Metrics -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                     <h4 class="font-semibold text-indigo-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                        <i class="fa-solid fa-hammer"></i> Suggested Prototyping Materials
+                        <i class="fa-solid fa-hammer"></i> Ergonomic Prototyping Materials
                     </h4>
                     <p id="modal-materials" class="text-slate-300 leading-relaxed"></p>
                 </div>
 
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                     <h4 class="font-semibold text-brand-400 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                        <i class="fa-solid fa-chart-line"></i> Quantitative Metrics to Test
+                        <i class="fa-solid fa-chart-line"></i> Usability & Engineering Metrics
                     </h4>
                     <p id="modal-metrics" class="text-slate-300 leading-relaxed"></p>
                 </div>
             </div>
 
-            <!-- Deliverable format -->
+            <!-- Final deliverable artifact -->
             <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                 <h4 class="font-semibold text-slate-100 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                    <i class="fa-solid fa-box-archive"></i> Final Deliverable Artifact
+                    <i class="fa-solid fa-box-archive"></i> Final Student Deliverable
                 </h4>
                 <p id="modal-deliverable" class="text-slate-300 leading-relaxed"></p>
             </div>
@@ -645,7 +643,7 @@
                 <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs transition-colors">
                     Close
                 </button>
-                <button id="modal-add-matrix-btn" onclick="addCurrentModalToMatrix()" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-brand-600/20 transition-all">
+                <button id="modal-add-matrix-btn" onclick="addCurrentModalToMatrix()" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs flex items-center gap-1.5 shadow-lg shadow-amber-600/20 transition-all">
                     <i class="fa-solid fa-plus"></i> Add to Decision Matrix
                 </button>
             </div>
@@ -656,6 +654,512 @@
 <!-- JAVASCRIPT LOGIC -->
 <script>
 let generatedCardsData = [];
+let currentAIMode = 'generate';
+let activeModalIdea = null;
+
+// Curated Project Database enriched with Human-Centered Design (HCD) framing
+const curatedIdeas = [
+    {
+        id: 'hcd-idea-1',
+        title: 'Ergonomic Vineyard Pruning Shears Assist with Wrist Strain Shield',
+        targetUserGroup: 'Field Workers & Farmers',
+        targetPersona: 'Seasonal Cherry & Vineyard Workers in Leelanau / Old Mission Peninsula',
+        painPoint: 'Repetitive hand-clipping over 8-hour shifts causes acute tendonitis, hand cramping, and cold-weather grip slippage.',
+        discipline: 'Biomedical/Assistive',
+        type: 'Physical Prototype',
+        region: 'NW Michigan',
+        materials: 'Low Cost ($0-$15)',
+        theme: 'Accessibility & Ergonomics',
+        summary: 'A custom mechanical leverage sleeve and palm-rest spring recoil attachment retrofitted onto standard pruning shears to reduce worker grip force.',
+        scope: 'Design and 3D print/mold ergonomic handle extensions with foam palm grips; test with 5 subjects under simulated vine-cutting resistance.',
+        avoid: 'Do not attempt powered pneumatic or battery motorized shears; focus entirely on passive mechanical advantage and wrist alignment.',
+        prototypingMaterials: 'Thermoplastic moldable plastic, compression springs, grip tape, force scale, scrap vine branches.',
+        metrics: 'Peak grip force required (N) via dynamometer & Subjective User Comfort Index (1-5 Borg Scale).',
+        deliverable: 'Ergonomic shear attachment + usability testing dataset graphing force reduction.',
+        cost: '$12'
+    },
+    {
+        id: 'hcd-idea-2',
+        title: 'Tactile Ice-Sensing Handgrip for Wheelchair & Walker Users',
+        targetUserGroup: 'Persons with Reduced Dexterity/Mobility',
+        targetPersona: 'Wheelchair & Rolling Walker Users Navigating Cold Sidewalks',
+        painPoint: 'Sudden black ice on campus ramps causes wheel slippage and tipping, while bare metal push-rims cause severe cold injury to hands.',
+        discipline: 'Electrical/Computer',
+        type: 'Hybrid',
+        region: 'NW Michigan',
+        materials: 'Sensor/Microcontroller',
+        theme: 'User Safety & Comfort',
+        summary: 'A clip-on thermal handgrip with embedded surface temperature sensor and vibration motor that alerts the user to sub-freezing contact hazards.',
+        scope: 'Program a Micro:bit connected to a thermistor and micro vibration motor inside an insulated grip wrap; evaluate alert response time.',
+        avoid: 'Do not try to build automated wheel braking or active heating elements; keep system to passive thermal barrier and tactile vibration feedback.',
+        prototypingMaterials: 'Micro:bit v2, coin cell battery, NTC thermistor, mini vibration motor, neoprene sleeve.',
+        metrics: 'Thermal conduction insulation (°C temperature drop) & User hazard warning latency (seconds).',
+        deliverable: 'Tested tactile grip wrap + user trial response time chart.',
+        cost: '$24'
+    },
+    {
+        id: 'hcd-idea-3',
+        title: 'Adaptive One-Handed Jar & Can Opener for Campus Dining Staff',
+        targetUserGroup: 'Persons with Reduced Dexterity/Mobility',
+        targetPersona: 'Kitchen Staff & Campus Dining Workers with Arthritis or Upper-Limb Strain',
+        painPoint: 'Opening heavy industrial food cans and glass jars during meal rush causes joint pain and frequent container slips.',
+        discipline: 'Biomedical/Assistive',
+        type: 'Physical Prototype',
+        region: 'General',
+        materials: 'Low Cost ($0-$15)',
+        theme: 'Task Speed & Usability',
+        summary: 'A wedge-action mechanical desktop clamp with high-friction silicone pads that secures containers so they can be opened with one hand.',
+        scope: 'Fabricate a multi-diameter wedge clamp ($10 scrap wood/silicone) and measure task completion speed and user effort with 4 test users.',
+        avoid: 'Do not use electric gear motors or complex pneumatics; focus on mechanical cam geometry and quick-release user interactions.',
+        prototypingMaterials: 'Plywood scrap, silicone rubber sheet, 3D printed cam lever, counter-clamp.',
+        metrics: 'Task completion time (seconds) and System Usability Scale (SUS) survey score.',
+        deliverable: 'Desk-mountable assistive opening rig + usability report.',
+        cost: '$9'
+    },
+    {
+        id: 'hcd-idea-4',
+        title: 'Boardman River Community Water Quality Visualizer Box',
+        targetUserGroup: 'Outdoor Recreationists & Divers',
+        targetPersona: 'Local Kayakers, Anglers & Community Volunteer Water Monitors',
+        painPoint: 'Volunteers struggle to read water turbidity tubes in bright sunlight while wading in swift river currents, leading to inaccurate readings.',
+        discipline: 'Civil/Environmental',
+        type: 'Physical Prototype',
+        region: 'NW Michigan',
+        materials: 'Moderate ($15-$35)',
+        theme: 'Community & Sustainability',
+        summary: 'A glare-shielded, buoyant water sampling viewer with integrated LED backlight and Secchi depth scale designed for one-handed river sampling.',
+        scope: 'Build a waterproof glare-shrouded viewing chamber for standard turbidity tubes; conduct accuracy tests with local volunteers.',
+        avoid: 'Do not build high-cost digital spectrophotometers; focus on human optical clarity, floatation, and field durability.',
+        prototypingMaterials: 'Acrylic tubing, black foam shroud, 3V waterproof LED strip, floatation collar.',
+        metrics: 'Reading variance between observers (NTU error range) & Task stability score in moving water.',
+        deliverable: 'Field-tested community viewer rig + observer reliability study.',
+        cost: '$18'
+    },
+    {
+        id: 'hcd-idea-5',
+        title: 'Campus Winter Pedestrian Slip-Hazard Warning & Path Guard',
+        targetUserGroup: 'Winter Pedestrians & Commuters',
+        targetPersona: 'Students and Faculty Commuting Between Campus Buildings in Sub-Zero Weather',
+        painPoint: 'Shadowed north-facing walkways freeze rapidly into black ice, causing frequent slip-and-fall injuries during early morning classes.',
+        discipline: 'Civil/Environmental',
+        type: 'Process/System',
+        region: 'NW Michigan',
+        materials: 'Low Cost ($0-$15)',
+        theme: 'User Safety & Comfort',
+        summary: 'A human-centered physical signage layout and passive solar-reflecting bollard cap that illuminates icy walkway patches without power wiring.',
+        scope: 'Design solar-concentrating retro-reflective caps for campus trail markers; conduct night-time visibility and user awareness trials.',
+        avoid: 'Do not attempt underground heating cables or active grid-powered lighting.',
+        prototypingMaterials: 'High-visibility retroreflective tape, Fresnel lenses, recycled PVC pipe, solar glow markers.',
+        metrics: 'Detection distance by pedestrians (meters) & User-reported path hazard awareness (%).',
+        deliverable: 'Bollard cap prototype + pedestrian visibility field trial dataset.',
+        cost: '$14'
+    },
+    {
+        id: 'hcd-idea-6',
+        title: 'Ergonomic Salt Spreader Deflector Guard for Facilities Crew',
+        targetUserGroup: 'Campus Students & Staff',
+        targetPersona: 'Grounds Maintenance Crew Clearing Sidewalks in Early Morning Hours',
+        painPoint: 'Broad salt throw patterns waste expensive de-icer, corrode adjacent turf grass, and force crew to re-sweep over-salted entryways.',
+        discipline: 'Mechanical',
+        type: 'Physical Prototype',
+        region: 'General',
+        materials: 'Moderate ($15-$35)',
+        theme: 'Task Speed & Usability',
+        summary: 'A lightweight quick-attach deflector shield with foot-pedal width adjustment for walk-behind rotary salt spreaders.',
+        scope: 'Construct a lightweight deflector frame that clamps onto standard spreaders; measure salt distribution boundaries and attachment speed.',
+        avoid: 'Do not redesign the internal gearbox of commercial spreaders; keep focus on the human user ergonomics and quick adjustment mechanism.',
+        prototypingMaterials: 'Corrugated plastic, 3D printed hinge clamps, spring return cable, aluminum brackets.',
+        metrics: 'Salt placement accuracy inside 4ft sidewalk zone (%) & Attachment/removal time by operator (sec).',
+        deliverable: 'Quick-clamp deflector prototype + salt distribution heat maps.',
+        cost: '$22'
+    },
+    {
+        id: 'hcd-idea-7',
+        title: 'Night-Shift Fruit Harvesting Ergonomic Headlamp Diffuser',
+        targetUserGroup: 'Field Workers & Farmers',
+        targetPersona: 'Night-Shift Orchard Pickers Harvesting Cherries/Apples',
+        painPoint: 'Harsh narrow-beam headlamps cause severe glare for coworkers, deep shadows inside tree canopies, and eye strain over long night shifts.',
+        discipline: 'Electrical/Computer',
+        type: 'Hybrid',
+        region: 'NW Michigan',
+        materials: 'Sensor/Microcontroller',
+        theme: 'User Safety & Comfort',
+        summary: 'A wide-angle anti-glare diffuser lens attachment with ambient light sensing that automatically dims when facing another picker.',
+        scope: 'Program a Micro:bit light sensor paired with a servo-driven shutter or dimming circuit on a 5V LED headlamp; test with 3 pickers in dark room.',
+        avoid: 'Do not build custom headlamp optics from scratch; retrofit existing commercial headlamps.',
+        prototypingMaterials: 'Micro:bit v2, light sensor, frosted acrylic diffuser lens, 3D printed headband bracket.',
+        metrics: 'Coworker glare reduction (Lux reflection) & Harvest speed under soft vs point light (units/min).',
+        deliverable: 'Smart diffuser headband + glare mitigation analysis.',
+        cost: '$26'
+    },
+    {
+        id: 'hcd-idea-8',
+        title: 'Quiet Dining Hall Bus Tray Dampening & Flow Station',
+        targetUserGroup: 'Campus Students & Staff',
+        targetPersona: 'Student Diners & Dining Hall Dishwashers',
+        painPoint: 'Extreme noise levels (clattering metal cutlery & porcelain) at dish drop-off stations cause sensory overload and worker hearing fatigue.',
+        discipline: 'Industrial/Process',
+        type: 'Process/System',
+        region: 'General',
+        materials: 'Low Cost ($0-$15)',
+        theme: 'Accessibility & Ergonomics',
+        summary: 'A acoustic-dampening drop station slide with silicone guide baffles and visual queue cues to quiet and streamline tray returns.',
+        scope: 'Build a 1:2 scale acoustic tray drop ramp lined with sound-dampening rubber; measure peak decibel reduction during simulated tray drops.',
+        avoid: 'Do not attempt powered acoustic active noise cancellation systems; focus on passive dampening material selection and drop geometry.',
+        prototypingMaterials: 'High-density silicone foam, sound dampening mat, cardboard ramp structure, decibel meter app.',
+        metrics: 'Peak impulse noise reduction (dB) during tray drop & Student placement accuracy into proper sorting slots.',
+        deliverable: 'Acoustic drop station mockup + decibel reduction test log.',
+        cost: '$15'
+    }
+];
+
+// Human-Centered Pugh Matrix Criteria
+let matrixSlots = [null, null, null];
+const matrixCriteria = [
+    { name: 'Target User Relief & Impact', weight: 0.25 },
+    { name: 'Human Usability & Ergonomic Fit', weight: 0.25 },
+    { name: '15-Wk Feasibility (1-2 hr/wk budget)', weight: 0.20 },
+    { name: 'Quantitative & Usability Testability', weight: 0.15 },
+    { name: 'Material Accessibility & Low Cost', weight: 0.15 }
+];
+
+function renderIdeas(ideasToRender) {
+    const grid = document.getElementById('ideas-grid');
+    const countLabel = document.getElementById('idea-count');
+    
+    if (!grid) return;
+
+    countLabel.textContent = `Showing ${ideasToRender.length} of ${curatedIdeas.length} HCD projects`;
+
+    if (ideasToRender.length === 0) {
+        grid.innerHTML = `
+            <div class="col-span-full py-12 text-center text-slate-400 bg-slate-950/40 rounded-2xl border border-slate-800 space-y-3">
+                <i class="fa-solid fa-user-slash text-3xl text-slate-600"></i>
+                <p class="text-sm font-medium text-slate-300">No human-centered projects matched your current filter criteria.</p>
+                <button onclick="resetFilters()" class="px-4 py-2 text-xs font-semibold text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded-xl transition-all">
+                    Reset All Filters
+                </button>
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = ideasToRender.map(idea => `
+        <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+                <!-- Badges -->
+                <div class="flex items-start justify-between gap-2">
+                    <div class="flex flex-wrap items-center gap-1.5">
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1">
+                            <i class="fa-solid fa-user"></i> ${idea.targetUserGroup.split(' ')[0]}
+                        </span>
+                        <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30">
+                            ${idea.discipline}
+                        </span>
+                    </div>
+                    ${idea.region === 'NW Michigan' ? `
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-950 text-cyan-300 border border-cyan-500/30 flex items-center gap-1">
+                            <i class="fa-solid fa-location-dot"></i> Regional
+                        </span>
+                    ` : ''}
+                </div>
+                
+                <h3 class="font-bold text-slate-100 text-base leading-snug hover:text-amber-300 transition-colors">
+                    ${idea.title}
+                </h3>
+                
+                <!-- Target User & Pain point snippet -->
+                <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-1 text-xs">
+                    <p class="text-[11px] text-amber-400 font-semibold truncate"><i class="fa-solid fa-circle-user mr-1"></i> ${idea.targetPersona}</p>
+                    <p class="text-[11px] text-slate-300 line-clamp-2 leading-relaxed">${idea.painPoint}</p>
+                </div>
+            </div>
+
+            <div class="space-y-3 pt-2 border-t border-slate-800/80">
+                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-400">
+                    <div>
+                        <span class="block text-[10px] text-slate-500 uppercase font-semibold">Usability Metric</span>
+                        <span class="text-slate-300 font-medium truncate block">${idea.metrics.split('&')[0]}</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] text-slate-500 uppercase font-semibold">Cost</span>
+                        <span class="text-amber-300 font-medium truncate block">${idea.cost}</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 pt-1">
+                    <button onclick="openModal('${idea.id}')" class="flex-1 py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-eye text-amber-400"></i> HCD Brief
+                    </button>
+                    <button onclick="addIdeaToMatrixById('${idea.id}')" class="py-2 px-3 rounded-xl bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-semibold transition-colors flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus"></i> Matrix
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function filterIdeas() {
+    const search = document.getElementById('search-input').value.toLowerCase();
+    const userGroup = document.getElementById('filter-user-group').value;
+    const region = document.getElementById('filter-region').value;
+    const discipline = document.getElementById('filter-discipline').value;
+    const materials = document.getElementById('filter-materials').value;
+    const theme = document.getElementById('filter-theme').value;
+
+    const filtered = curatedIdeas.filter(idea => {
+        const matchesSearch = !search || 
+            idea.title.toLowerCase().includes(search) ||
+            idea.targetPersona.toLowerCase().includes(search) ||
+            idea.painPoint.toLowerCase().includes(search) ||
+            idea.summary.toLowerCase().includes(search) ||
+            idea.discipline.toLowerCase().includes(search);
+
+        const matchesUserGroup = (userGroup === 'all') || (idea.targetUserGroup === userGroup);
+        const matchesRegion = (region === 'all') || (idea.region === region);
+        const matchesDiscipline = (discipline === 'all') || (idea.discipline === discipline);
+        const matchesMaterials = (materials === 'all') || (idea.materials === materials);
+        const matchesTheme = (theme === 'all') || (idea.theme === theme);
+
+        return matchesSearch && matchesUserGroup && matchesRegion && matchesDiscipline && matchesMaterials && matchesTheme;
+    });
+
+    renderIdeas(filtered);
+}
+
+function resetFilters() {
+    document.getElementById('search-input').value = '';
+    document.getElementById('filter-user-group').value = 'all';
+    document.getElementById('filter-region').value = 'all';
+    document.getElementById('filter-discipline').value = 'all';
+    document.getElementById('filter-materials').value = 'all';
+    document.getElementById('filter-theme').value = 'all';
+    renderIdeas(curatedIdeas);
+}
+
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    const target = document.getElementById('view-' + tabId);
+    if(target) target.classList.remove('hidden');
+
+    ['explorer', 'ai', 'matrix', 'roadmap'].forEach(id => {
+        const btn = document.getElementById('tab-' + id);
+        if(btn) {
+            if(id === tabId) {
+                btn.className = "px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 bg-amber-600 text-white shadow-md shadow-amber-600/30";
+            } else {
+                btn.className = "px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 text-slate-300 hover:bg-slate-800 hover:text-white";
+            }
+        }
+    });
+}
+
+function setAIMode(mode) {
+    currentAIMode = mode;
+    const genGroup = document.getElementById('ai-input-gen-group');
+    const checkGroup = document.getElementById('ai-input-check-group');
+    const btnGen = document.getElementById('mode-btn-gen');
+    const btnCheck = document.getElementById('mode-btn-check');
+
+    if (mode === 'generate') {
+        genGroup.classList.remove('hidden');
+        checkGroup.classList.add('hidden');
+        btnGen.className = "py-1.5 text-xs font-medium rounded-md bg-amber-600 text-white transition-all";
+        btnCheck.className = "py-1.5 text-xs font-medium rounded-md text-slate-400 hover:text-slate-200 transition-all";
+    } else {
+        genGroup.classList.add('hidden');
+        checkGroup.classList.remove('hidden');
+        btnCheck.className = "py-1.5 text-xs font-medium rounded-md bg-amber-600 text-white transition-all";
+        btnGen.className = "py-1.5 text-xs font-medium rounded-md text-slate-400 hover:text-slate-200 transition-all";
+    }
+}
+
+function openModal(ideaId) {
+    const idea = curatedIdeas.find(i => i.id === ideaId);
+    if (!idea) return;
+
+    activeModalIdea = idea;
+    document.getElementById('modal-user-group').textContent = idea.targetUserGroup;
+    document.getElementById('modal-discipline').textContent = idea.discipline;
+    document.getElementById('modal-region').textContent = idea.region;
+    document.getElementById('modal-title').textContent = idea.title;
+    document.getElementById('modal-user-persona').textContent = idea.targetPersona;
+    document.getElementById('modal-painpoint').textContent = idea.painPoint;
+    document.getElementById('modal-scope').textContent = idea.scope;
+    document.getElementById('modal-avoid').textContent = idea.avoid;
+    document.getElementById('modal-materials').textContent = idea.prototypingMaterials;
+    document.getElementById('modal-metrics').textContent = idea.metrics;
+    document.getElementById('modal-deliverable').textContent = idea.deliverable;
+    document.getElementById('modal-cost').textContent = `Estimated Budget: ${idea.cost}`;
+
+    document.getElementById('modal-backdrop').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('modal-backdrop').classList.add('hidden');
+    activeModalIdea = null;
+}
+
+function addCurrentModalToMatrix() {
+    if (activeModalIdea) {
+        addProjectObjectToMatrix(activeModalIdea);
+        closeModal();
+        switchTab('matrix');
+    }
+}
+
+function addIdeaToMatrixById(id) {
+    const idea = curatedIdeas.find(i => i.id === id);
+    if (idea) {
+        addProjectObjectToMatrix(idea);
+        switchTab('matrix');
+    }
+}
+
+function addProjectObjectToMatrix(projectObj) {
+    const emptyIndex = matrixSlots.findIndex(slot => slot === null);
+    if (emptyIndex === -1) {
+        alert("The Decision Matrix is full (3 options max). Please remove an existing topic first.");
+        return;
+    }
+    
+    matrixSlots[emptyIndex] = {
+        title: projectObj.title,
+        scores: [3, 3, 3, 3, 3] // Default initial scores (1 to 5 scale)
+    };
+    
+    renderMatrix();
+}
+
+function removeMatrixSlot(index) {
+    matrixSlots[index] = null;
+    renderMatrix();
+}
+
+function clearMatrix() {
+    matrixSlots = [null, null, null];
+    renderMatrix();
+}
+
+function updateScore(slotIndex, critIndex, val) {
+    if (matrixSlots[slotIndex]) {
+        matrixSlots[slotIndex].scores[critIndex] = parseFloat(val);
+        renderMatrix();
+    }
+}
+
+function renderMatrix() {
+    const activeCount = matrixSlots.filter(s => s !== null).length;
+    const badge = document.getElementById('matrix-badge');
+    if (badge) {
+        badge.textContent = activeCount;
+        if (activeCount > 0) {
+            badge.classList.remove('hidden');
+            badge.classList.add('flex');
+        } else {
+            badge.classList.add('hidden');
+            badge.classList.remove('flex');
+        }
+    }
+
+    // Header Slot Titles
+    for (let i = 0; i < 3; i++) {
+        const slotHeader = document.getElementById(`col-slot-${i}`);
+        if (!slotHeader) continue;
+        const titleSpan = slotHeader.querySelector('.slot-title');
+        if (matrixSlots[i]) {
+            titleSpan.textContent = matrixSlots[i].title;
+            titleSpan.classList.add('line-clamp-1');
+        } else {
+            titleSpan.textContent = `Option ${i + 1} (Empty)`;
+            titleSpan.classList.remove('line-clamp-1');
+        }
+    }
+
+    // Body Rows
+    const tbody = document.getElementById('matrix-body');
+    if (!tbody) return;
+
+    tbody.innerHTML = matrixCriteria.map((crit, cIdx) => `
+        <tr class="hover:bg-slate-900/50 transition-colors">
+            <td class="p-3 font-medium text-slate-200">
+                ${crit.name}
+                <span class="block text-[10px] text-slate-500">Weight: ${(crit.weight * 100).toFixed(0)}%</span>
+            </td>
+            <td class="p-3 text-center text-slate-400 font-mono">${crit.weight}</td>
+            ${[0, 1, 2].map(sIdx => `
+                <td class="p-3 border-l border-slate-800 text-center">
+                    ${matrixSlots[sIdx] ? `
+                        <select onchange="updateScore(${sIdx}, ${cIdx}, this.value)" class="bg-slate-950 border border-slate-700 text-slate-200 rounded px-2 py-1 text-xs focus:border-amber-500 focus:outline-none">
+                            ${[1,2,3,4,5].map(score => `
+                                <option value="${score}" ${matrixSlots[sIdx].scores[cIdx] === score ? 'selected' : ''}>${score} ${score === 5 ? '(Best)' : ''}</option>
+                            `).join('')}
+                        </select>
+                    ` : `<span class="text-slate-600">-</span>`}
+                </td>
+            `).join('')}
+        </tr>
+    `).join('');
+
+    // Calculate totals
+    [0, 1, 2].forEach(sIdx => {
+        const scoreCell = document.getElementById(`score-${sIdx}`);
+        if (!scoreCell) return;
+        
+        if (matrixSlots[sIdx]) {
+            let total = 0;
+            matrixCriteria.forEach((crit, cIdx) => {
+                total += matrixSlots[sIdx].scores[cIdx] * crit.weight;
+            });
+            scoreCell.textContent = total.toFixed(2);
+            scoreCell.className = "p-4 text-center text-base font-bold border-l border-slate-800 text-amber-300";
+        } else {
+            scoreCell.textContent = "0.0";
+            scoreCell.className = "p-4 text-center text-base border-l border-slate-800 text-slate-600";
+        }
+    });
+}
+
+function fetchWithRetry(url, options, retries = 3, backoff = 1000) {
+    return new Promise((resolve, reject) => {
+        const attempt = (n) => {
+            fetch(url, options)
+                .then(res => {
+                    if (res.ok) resolve(res);
+                    else throw new Error(`HTTP ${res.status}`);
+                })
+                .catch(err => {
+                    if (n <= 1) reject(err);
+                    else setTimeout(() => attempt(n - 1), backoff);
+                });
+        };
+        attempt(retries);
+    });
+}
+
+function copyAIResult() {
+    const content = document.getElementById('ai-result-content');
+    if (!content) return;
+    const textToCopy = content.innerText;
+    
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        alert("Copied human-centered project briefs to clipboard.");
+    } catch (err) {
+        console.error("Copy failed", err);
+    }
+    document.body.removeChild(textarea);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    renderIdeas(curatedIdeas);
+    renderMatrix();
+});
 
 async function runAIGenerator() {
     const placeholder = document.getElementById('ai-output-placeholder');
@@ -675,35 +1179,34 @@ async function runAIGenerator() {
     if (isNMCContext) {
         regionPromptNote = `
 REGIONAL & INSTITUTIONAL CONTEXT (Northwestern Michigan College - NMC & Traverse City Region):
-- Institution: Northwestern Michigan College (NMC) in Traverse City, MI.
-- Key Regional Features: Grand Traverse Bay, Boardman River & Lake, Great Lakes Water Studies Institute, Great Lakes Maritime Academy, local cherry orchards & viticulture/wineries, lake-effect winter conditions, UAV/Aviation.
-- Tailor problem statements directly to issues relevant to NMC, Grand Traverse Bay, or Northwestern Michigan agriculture/winter environment.`;
+- Location: Northwestern Michigan College (NMC) in Traverse City, MI.
+- Regional Users: Local cherry/vineyard farm hands, Great Lakes maritime/water monitoring volunteers, winter campus commuters, local senior citizens navigating icy downtown walkways.
+- Tailor problem statements directly to real human users in Grand Traverse County and NMC campus environments.`;
     }
 
     let prompt = "";
     if (currentAIMode === 'generate') {
+        const userPersona = document.getElementById('ai-user-persona').value || "Seasonal farm workers with joint strain";
+        const userPainpoint = document.getElementById('ai-user-painpoint').value || "Cold weather hand fatigue and difficulty operating heavy manual tools";
         const ideaCount = document.getElementById('ai-idea-count').value;
         const hoursBudget = document.getElementById('ai-hours-budget').value;
         const discipline = document.getElementById('ai-discipline').value;
-        const teamSize = document.getElementById('ai-team-size').value;
-        const themeFocus = document.getElementById('ai-theme-focus').value;
-        const interest = document.getElementById('ai-interest').value || (isNMCContext ? "Great Lakes water, cherry agriculture, or regional winter infrastructure" : "General campus engineering challenge");
-        const resources = document.getElementById('ai-resources').value || "Cardboard, standard hand tools, 3D printing, basic sensors";
+        const resources = document.getElementById('ai-resources').value || "Cardboard, foam, 3D printing, Micro:bits, hand tools";
 
-        prompt = `You are an engineering professor at ${isNMCContext ? 'Northwestern Michigan College (NMC)' : 'a university'} teaching an introductory first-year engineering design course.
-Generate exactly ${ideaCount} DISTINCT, realistic, high-quality project topics tailored to these inputs:
-- Discipline: ${discipline}
-- Focus Theme: ${themeFocus}
-- Team Size: ${teamSize}
-- Student Interest Keywords: ${interest}
-- Time Budget Constraint: ${hoursBudget}
-- Available Lab Resources: ${resources}
+        prompt = `You are a Human-Centered Design (HCD) engineering professor at ${isNMCContext ? 'Northwestern Michigan College (NMC)' : 'a university'}.
+Generate exactly ${ideaCount} DISTINCT, highly empathetic, realistic Human-Centered Design project briefs for first-year engineering students.
+
+INPUT CONSTRAINTS:
+- Target User Persona: ${userPersona}
+- Lived User Pain Point: ${userPainpoint}
+- Target Engineering Discipline: ${discipline}
+- Student Weekly Hours Budget: ${hoursBudget} (Course duration: 15 weeks)
+- Prototyping Gear Available: ${resources}
 ${regionPromptNote}
 
-COURSE CONSTRAINT PARAMETERS:
-- Course Duration: 15 weeks
-- Time Commitment: ${hoursBudget}
-- Must include: Problem Research, Prototyping (physical or process), Quantitative Testing, and Refinement.
+HUMAN-CENTERED DESIGN REQUIREMENTS:
+1. Every project MUST explicitly define the human persona and their lived physical/cognitive frustration.
+2. The 15-week scope MUST include an initial empathy phase (user observation/interview) and a usability testing phase with quantitative usability metrics (e.g., task time reduction, force required, comfort score, error rate reduction).
 
 CRITICAL FORMAT INSTRUCTIONS:
 Separate each project using the marker line:
@@ -711,12 +1214,13 @@ Separate each project using the marker line:
 
 For each project, provide the following structured template:
 TITLE: [Concise Project Title]
+USER_PERSONA: [Specific target human user]
+PAIN_POINT: [Detailed description of the lived physical/cognitive/workflow frustration]
 DISCIPLINE: [Discipline]
-PROBLEM: [1-2 sentence real-world problem statement]
-SCOPE: [Feasible 15-week prototype & scope tuned to ${hoursBudget}]
-AVOID: [What scope creep to avoid]
-MATERIALS: [Low-cost prototyping materials]
-METRIC: [Specific quantitative test metric to measure, e.g., flow rate, force, accuracy %]
+SCOPE: [Feasible 15-week HCD scope tuned to ${hoursBudget}, including empathy observation and rapid mockup]
+AVOID: [What scope creep to avoid (e.g. no complex motors, no full custom PCBs)]
+MATERIALS: [Low-cost tactile/ergonomic prototyping materials]
+METRIC: [Dual metrics: 1 Physical/Engineering metric AND 1 Usability/Ergonomic metric]
 FEASIBILITY_SCORE: [X/10]`;
 
     } else {
@@ -728,25 +1232,27 @@ FEASIBILITY_SCORE: [X/10]`;
             return;
         }
 
-        prompt = `You are an engineering design course coordinator at ${isNMCContext ? 'Northwestern Michigan College (NMC)' : 'a college'} evaluating a proposed student project for feasibility.
-Student Proposed Idea: "${rawIdea}"
+        prompt = `You are an HCD engineering course coordinator evaluating a student's project idea for human centricity and feasibility.
+Proposed Student Idea: "${rawIdea}"
 ${regionPromptNote}
 
-Evaluate this idea and refine it into a feasible 15-week scope.
-Separate your output into 1 project card using marker line:
+Refine this idea so it has a clear Target User Persona, a well-defined Lived Pain Point, and a calibrated 15-week scope suitable for 1-2 hours per week per student.
+
+Separate your output using marker line:
 ---PROJECT_SPLIT---
 
-TITLE: Scope-Refined: ${rawIdea.substring(0, 35)}...
-DISCIPLINE: Custom / Applied
-PROBLEM: ${rawIdea}
-SCOPE: [Calibrated 15-week scope for 1-2 hrs/week]
-AVOID: [Crucial scope cuts to make]
-MATERIALS: [Suggested low-cost materials]
-METRIC: [Quantitative test plan]
+TITLE: HCD Refined: ${rawIdea.substring(0, 35)}...
+USER_PERSONA: [Clarified Target Human User Persona]
+PAIN_POINT: [Clarified Lived Frustration/Pain Point]
+DISCIPLINE: Custom Assistive / HCD
+SCOPE: [Calibrated 15-week scope with Empathy Phase & Usability Phase]
+AVOID: [Key scope cuts to keep within 1-2 hrs/week]
+MATERIALS: [Suggested low-cost ergonomic materials]
+METRIC: [Quantitative Ergonomic & Usability Metrics]
 FEASIBILITY_SCORE: [X/10]`;
     }
 
-    const systemPrompt = "You are an expert engineering educator specializing in project-based learning and first-year student scope management.";
+    const systemPrompt = "You are an expert engineering design educator specializing in Human-Centered Design (HCD), ergonomics, usability testing, and first-year scope control.";
     const apiKey = ""; // Canvas handles runtime key injection
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
 
@@ -765,7 +1271,6 @@ FEASIBILITY_SCORE: [X/10]`;
         const data = await response.json();
         const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-        aiCurrentResultText = generatedText;
         parseAndRenderAICards(generatedText);
 
         loader.classList.add('hidden');
@@ -790,8 +1295,7 @@ function parseAndRenderAICards(text) {
     generatedCardsData = [];
 
     if (rawBlocks.length === 0) {
-        // Fallback formatting if raw text didn't split
-        container.innerHTML = formatAIResponse(text);
+        container.innerHTML = `<div class="p-4 bg-slate-900 rounded-xl text-slate-300 text-xs">${text.replaceAll('\n', '<br>')}</div>`;
         return;
     }
 
@@ -799,47 +1303,50 @@ function parseAndRenderAICards(text) {
 
     rawBlocks.forEach((block, index) => {
         const getField = (tag) => {
-            const regex = new RegExp(`${tag}:\\s*(.*?)(?=(TITLE:|DISCIPLINE:|PROBLEM:|SCOPE:|AVOID:|MATERIALS:|METRIC:|FEASIBILITY_SCORE:|$))`, 's');
+            const regex = new RegExp(`${tag}:\\s*(.*?)(?=(TITLE:|USER_PERSONA:|PAIN_POINT:|DISCIPLINE:|SCOPE:|AVOID:|MATERIALS:|METRIC:|FEASIBILITY_SCORE:|$))`, 's');
             const match = block.match(regex);
             return match ? match[1].trim() : '';
         };
 
-        const title = getField('TITLE') || `Generated Idea #${index + 1}`;
-        const discipline = getField('DISCIPLINE') || 'Engineering';
-        const problem = getField('PROBLEM') || 'Problem description provided in details.';
+        const title = getField('TITLE') || `Generated HCD Project #${index + 1}`;
+        const persona = getField('USER_PERSONA') || 'Target User Group';
+        const painpoint = getField('PAIN_POINT') || 'User frustration described in details.';
+        const discipline = getField('DISCIPLINE') || 'HCD Engineering';
         const scope = getField('SCOPE') || '15-week prototype scope.';
         const avoid = getField('AVOID') || 'High complexity setups.';
         const materials = getField('MATERIALS') || 'Low-cost prototyping supplies.';
-        const metric = getField('METRIC') || 'Quantitative performance metric.';
+        const metric = getField('METRIC') || 'Usability and physical metrics.';
         const score = getField('FEASIBILITY_SCORE') || '8/10';
 
         const cardObj = {
             id: 'ai-gen-' + Date.now() + '-' + index,
             title: title.replaceAll('*', ''),
+            targetUserGroup: persona.split(' ')[0] || 'User',
+            targetPersona: persona.replaceAll('*', ''),
+            painPoint: painpoint.replaceAll('*', ''),
             discipline: discipline.replaceAll('*', ''),
-            type: 'AI Custom',
+            type: 'AI HCD Brief',
             region: document.getElementById('ai-region-context').value === 'nmc' ? 'NW Michigan' : 'General',
             materials: 'Low Cost / Lab Tools',
-            theme: 'Tailored Focus',
+            theme: 'Human-Centered Design',
             summary: scope,
-            problem: problem,
             scope: scope,
             avoid: avoid,
             prototypingMaterials: materials,
             metrics: metric,
-            deliverable: '15-Week Prototype & Data Report',
-            cost: '$10 - $30'
+            deliverable: '15-Week HCD Prototype & Usability Data',
+            cost: '$10 - $25'
         };
 
         generatedCardsData.push(cardObj);
 
         cardsHTML += `
-            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500/40 transition-all space-y-3">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-3">
                 <div class="flex items-start justify-between gap-2">
                     <div>
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-500/20 text-brand-300 border border-brand-500/30">
-                                ${cardObj.discipline}
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                                User: ${cardObj.targetUserGroup}
                             </span>
                             <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                                 Feasibility: ${score}
@@ -847,20 +1354,24 @@ function parseAndRenderAICards(text) {
                         </div>
                         <h3 class="text-sm font-bold text-white leading-snug">${index + 1}. ${cardObj.title}</h3>
                     </div>
-                    <button onclick="addGeneratedCardToMatrix(${index})" class="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-medium transition-colors flex items-center gap-1 shrink-0">
+                    <button onclick="addGeneratedCardToMatrix(${index})" class="px-2.5 py-1 rounded-lg bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-medium transition-colors flex items-center gap-1 shrink-0">
                         <i class="fa-solid fa-plus text-[10px]"></i> Add Matrix
                     </button>
                 </div>
 
-                <div class="space-y-1.5 text-[11px] text-slate-300">
-                    <p><strong class="text-slate-100">Problem:</strong> ${problem}</p>
-                    <p><strong class="text-brand-300">15-Wk Scope:</strong> ${scope}</p>
+                <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800/80 space-y-1 text-[11px]">
+                    <p class="text-amber-400 font-semibold"><i class="fa-solid fa-user-circle mr-1"></i> <strong>Persona:</strong> ${persona}</p>
+                    <p class="text-rose-300"><i class="fa-solid fa-heart-crack mr-1"></i> <strong>Pain Point:</strong> ${painpoint}</p>
+                </div>
+
+                <div class="space-y-1 text-[11px] text-slate-300">
+                    <p><strong class="text-emerald-400">15-Wk Scope:</strong> ${scope}</p>
                     <p><strong class="text-amber-400">Out of Scope:</strong> ${avoid}</p>
                 </div>
 
                 <div class="pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-[10px] text-slate-400 gap-2">
                     <span><i class="fa-solid fa-hammer text-indigo-400 mr-1"></i> <strong>Materials:</strong> ${materials}</span>
-                    <span><i class="fa-solid fa-vial text-emerald-400 mr-1"></i> <strong>Metric:</strong> ${metric}</span>
+                    <span><i class="fa-solid fa-chart-line text-amber-400 mr-1"></i> <strong>Metrics:</strong> ${metric}</span>
                 </div>
             </div>
         `;
@@ -868,7 +1379,7 @@ function parseAndRenderAICards(text) {
 
     cardsHTML += `</div>`;
     container.innerHTML = cardsHTML;
-    document.getElementById('ai-status-summary').innerText = `Generated ${generatedCardsData.length} calibrated project briefs`;
+    document.getElementById('ai-status-summary').innerText = `Generated ${generatedCardsData.length} human-centered project briefs`;
 }
 
 function addGeneratedCardToMatrix(index) {
