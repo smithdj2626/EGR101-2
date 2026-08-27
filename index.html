@@ -239,23 +239,67 @@
 
                     <!-- Mode A: Generator Input -->
                     <div id="ai-input-gen-group" class="space-y-3">
-                        <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Primary Interests / Topic Area</label>
-                            <input type="text" id="ai-interest" placeholder="e.g. Cherry orchard frost, Boardman River microplastics, dock de-icing, drone sensors..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-brand-500 focus:outline-none">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1"><i class="fa-solid fa-list-ol text-brand-400 mr-1"></i> Idea Batch Count</label>
+                                <select id="ai-idea-count" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-brand-300 font-semibold focus:border-brand-500 focus:outline-none">
+                                    <option value="1">1 Detailed Project Brief</option>
+                                    <option value="3" selected>3 Custom Project Options</option>
+                                    <option value="5">5 Broad Project Options</option>
+                                    <option value="8">8 Rapid Brainstorm Ideas</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1"><i class="fa-solid fa-clock text-emerald-400 mr-1"></i> Time Budget / Wk</label>
+                                <select id="ai-hours-budget" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
+                                    <option value="1-2 hrs/week (~15-25 hrs total)">1–2 hrs/wk (Strict ~20h)</option>
+                                    <option value="3-4 hrs/week (~45-60 hrs total)">3–4 hrs/wk (Moderate ~50h)</option>
+                                    <option value="5+ hrs/week (~75+ hrs total)">5+ hrs/wk (Intensive Lab)</option>
+                                </select>
+                            </div>
                         </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Target Discipline</label>
+                                <select id="ai-discipline" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
+                                    <option value="Any / Multidisciplinary">Any / Multidisciplinary</option>
+                                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                    <option value="Electrical & Computer Engineering">Electrical & Computer</option>
+                                    <option value="Civil & Environmental Engineering">Civil & Environmental</option>
+                                    <option value="Biomedical & Assistive Engineering">Biomedical & Assistive</option>
+                                    <option value="Industrial & Systems Process Engineering">Industrial & Systems</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Team Structure</label>
+                                <select id="ai-team-size" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
+                                    <option value="Small Team (2-3 Students)">Small Team (2-3)</option>
+                                    <option value="Full Team (4-5 Students)">Full Team (4-5)</option>
+                                    <option value="Individual Student">Individual Project</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Target Discipline</label>
-                            <select id="ai-discipline" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
-                                <option value="Any Discipline">Any Discipline</option>
-                                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                <option value="Electrical & Computer Engineering">Electrical & Computer Engineering</option>
-                                <option value="Civil & Environmental Engineering">Civil & Environmental Engineering</option>
-                                <option value="Biomedical & Assistive Engineering">Biomedical & Assistive Engineering</option>
-                                <option value="Industrial & Systems Process Engineering">Industrial & Systems Process Engineering</option>
+                            <label class="block text-xs font-medium text-slate-300 mb-1"><i class="fa-solid fa-bullseye text-indigo-400 mr-1"></i> Primary Theme Focus</label>
+                            <select id="ai-theme-focus" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:border-brand-500 focus:outline-none">
+                                <option value="All Domains">All Focus Domains</option>
+                                <option value="Sustainability & Great Lakes / Water">Sustainability, Water & Great Lakes</option>
+                                <option value="Agriculture, Orchards & Viticulture">Agriculture, Orchards & Viticulture</option>
+                                <option value="Winter Safety & Cold Climate Infrastructure">Winter Safety & Infrastructure</option>
+                                <option value="Accessibility, Healthcare & Assistive Tech">Accessibility & Healthcare</option>
+                                <option value="Smart Campus & Process Efficiency">Campus & Industrial Process</option>
                             </select>
                         </div>
+
                         <div>
-                            <label class="block text-xs font-medium text-slate-300 mb-1">Available Lab Resources / Tools</label>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Primary Interests / Challenge Area</label>
+                            <input type="text" id="ai-interest" placeholder="e.g. Cherry orchard frost, Boardman River microplastics, dock de-icing, drone sensors..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-brand-500 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Available Lab Tools & Fabrication Gear</label>
                             <input type="text" id="ai-resources" placeholder="e.g. Cardboard, 3D printer, Micro:bit, water testing kits, basic hand tools" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-brand-500 focus:outline-none">
                         </div>
                     </div>
@@ -298,13 +342,10 @@
 
                     <!-- Action Bar for AI Result -->
                     <div id="ai-actions" class="hidden pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-[11px] text-slate-400">Generated by Gemini 3 Flash</span>
+                        <span id="ai-status-summary" class="text-[11px] text-slate-400">Generated by Gemini 3 Flash</span>
                         <div class="flex items-center gap-2">
                             <button onclick="copyAIResult()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs flex items-center gap-1.5 transition-colors">
-                                <i class="fa-solid fa-copy"></i> Copy Text
-                            </button>
-                            <button onclick="addAIResultToMatrix()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs flex items-center gap-1.5 transition-colors">
-                                <i class="fa-solid fa-plus"></i> Add to Decision Matrix
+                                <i class="fa-solid fa-copy"></i> Copy All Diffs
                             </button>
                         </div>
                     </div>
@@ -614,474 +655,7 @@
 
 <!-- JAVASCRIPT LOGIC -->
 <script>
-const CURATED_PROJECTS = [
-    // NMC & Northwestern Lower Michigan Specific Projects
-    {
-        id: "proj-nmc-1",
-        title: "Grand Traverse Bay Surface Microplastic Skimmer & Collector",
-        discipline: "Civil/Environmental",
-        type: "Physical Prototype",
-        region: "NW Michigan",
-        materials: "Low Cost ($0-$15)",
-        theme: "Sustainability",
-        summary: "Build a passive floating mesh boom collector for nearshore Grand Traverse Bay or Boardman River launch points.",
-        problem: "Stormwater and marina traffic carry microplastics and surface debris into Grand Traverse Bay, threatening local freshwater aquatic life.",
-        scope: "Design a 2-foot wide floating boom prototype with tiered mesh screens (5mm to 1mm) to catch buoyant plastics in slow-moving water.",
-        avoid: "Do not build motorized autonomous vessels or attempt chemical micro-fiber mass spectrometer chemical analysis.",
-        prototypingMaterials: "PVC pipe, pool noodles for buoyancy, stainless wire mesh, nylon mosquito netting, catch tray.",
-        metrics: "Mass of simulated plastic pellets trapped per minute at controlled flow velocity (L/min).",
-        deliverable: "Physical boom prototype + hydrodynamic capture efficiency chart + Great Lakes Water Studies data sheet.",
-        cost: "$10 - $20"
-    },
-    {
-        id: "proj-nmc-2",
-        title: "Cherry Orchard Late-Spring Frost Microclimate Sensor & Alert",
-        discipline: "Electrical/Computer",
-        type: "Hybrid",
-        region: "NW Michigan",
-        materials: "Sensor/Microcontroller",
-        theme: "Agriculture & Food",
-        summary: "Develop a localized canopy temperature & humidity monitor to alert Traverse City fruit growers to blossom-damaging frost.",
-        problem: "Late spring freeze events in Northwestern Michigan can devastate cherry and apple blossom crops overnight.",
-        scope: "Wire a Micro:bit or Arduino with a DHT11 temperature sensor and buzzer/LED array to trigger when ambient temperature dips below 30°F (-1°C).",
-        avoid: "Avoid cellular tower long-range transmitters, multi-acre mesh networks, or automated orchard wind tower starters.",
-        prototypingMaterials: "BBC Micro:bit or Arduino, DHT11 temp/humidity sensor, ice bath for cold calibration, weatherproof housing box.",
-        metrics: "Thermal sensor accuracy within +/- 0.5°C when tested in ice water and freezer steps.",
-        deliverable: "Working sensor rig + cold calibration curve + low-cost frost warning setup instructions for local growers.",
-        cost: "$15 - $25"
-    },
-    {
-        id: "proj-nmc-3",
-        title: "Lake-Effect Ice & Sidewalk Pedestrian Safety Heating Strip",
-        discipline: "Mechanical",
-        type: "Physical Prototype",
-        region: "NW Michigan",
-        materials: "Moderate ($15-$35)",
-        theme: "Winter & Infrastructure",
-        summary: "Design a passive solar-conductive sidewalk threshold mat to prevent black ice formation at NMC campus building entrances.",
-        problem: "Frequent winter lake-effect snow and freeze-thaw cycles create dangerous black ice at high-traffic campus entryways.",
-        scope: "Create a 12x12 inch modular composite mat using dark thermal absorption materials and embedded passive heat conductors.",
-        avoid: "Do not attempt 240V high-power electrical grid heating installations.",
-        prototypingMaterials: "Recycled rubber crumb, dark aluminum heat spreader plate, low-voltage 12V heating wire mockup, temperature probe.",
-        metrics: "Time required to melt 5mm ice layer at -5°C ambient temperature compared to untreated control tile.",
-        deliverable: "Composite mat section + thermal melt rate curve + cost-benefit analysis vs chemical de-icers.",
-        cost: "$20 - $35"
-    },
-    {
-        id: "proj-nmc-4",
-        title: "Boardman River Watershed Runoff Silt & Sediment Trap",
-        discipline: "Civil/Environmental",
-        type: "Physical Prototype",
-        region: "NW Michigan",
-        materials: "Low Cost ($0-$15)",
-        theme: "Sustainability",
-        summary: "Engineered gravel-and-baffle settling chamber to trap road salt and construction silt before reaching the Boardman River.",
-        problem: "Spring snowmelt carries heavy silt and road salt runoff from campus parking lots into the Boardman River ecosystem.",
-        scope: "Construct a 1:4 scale 3-chamber settling box with angled baffle plates to slow water velocity and drop out suspended solids.",
-        avoid: "Do not conduct biological benthic macroinvertebrate field surveys or full watershed GIS mapping.",
-        prototypingMaterials: "Clear plastic storage bin, acrylic baffles, coarse gravel, sandbox sand, water pump flow rig.",
-        metrics: "Percentage of total suspended solids (TSS) removed by weight after 3 passes through baffle chamber.",
-        deliverable: "Physical settling chamber + TSS filtration percentage table + CAD scale diagram.",
-        cost: "$10 - $20"
-    },
-    {
-        id: "proj-nmc-5",
-        title: "Vineyard Pomace & Hop Waste Compost Moisture Rotator",
-        discipline: "Industrial/Process",
-        type: "Process/System",
-        region: "NW Michigan",
-        materials: "Low Cost ($0-$15)",
-        theme: "Agriculture & Food",
-        summary: "Optimize a mechanical turning workflow and aeration bin for turning local grape pomace and hop waste into soil amendment.",
-        problem: "Old Mission Peninsula wineries and regional breweries generate massive grape pomace and hop waste that takes months to decompose.",
-        scope: "Design a hand-crank mini tumbler or compost bin flow procedure that maintains optimal moisture (40-60%) and oxygen levels.",
-        avoid: "Do not perform complex microbial DNA sequencing or industrial high-heat digestors.",
-        prototypingMaterials: "5-gallon bucket tumbler, moisture meter probe, compost test mixture (grape skins/leaves/sawdust).",
-        metrics: "Decomposition rate indicated by core temperature peak (°F) and weekly moisture retention.",
-        deliverable: "Mini compost tumbler mockup + operational process workflow guide + temperature log graph.",
-        cost: "$10 - $20"
-    },
-    {
-        id: "proj-nmc-6",
-        title: "Marina Dock Air Bubbler Efficiency Flow Shroud",
-        discipline: "Mechanical",
-        type: "Physical Prototype",
-        region: "NW Michigan",
-        materials: "Moderate ($15-$35)",
-        theme: "Winter & Infrastructure",
-        summary: "Design a focused venturi nozzle attachment for dock de-icing bubblers to protect Great Lakes marina pilings from ice crushing.",
-        problem: "Harbor pilings on Grand Traverse Bay suffer ice expansion damage, and standard de-icing bubblers waste high electrical energy.",
-        scope: "3D print or construct a venturi flow directional shroud that directs warm bottom water upward in a wider 45-degree cone.",
-        avoid: "Do not install high-voltage submerged pumps in icy open lake water; test in tank setup.",
-        prototypingMaterials: "3D printed PLA nozzles, PVC pipe fittings, small 12V water fountain pump, acrylic test tank.",
-        metrics: "Surface area of water circulation created per Watt of power input compared to unshrouded pump.",
-        deliverable: "Venturi flow shroud prototype + plume spread tank test photos + energy reduction calculation.",
-        cost: "$15 - $30"
-    },
-
-    // Standard Universal Projects
-    {
-        id: "proj-1",
-        title: "Ergometric Backpack Weight Distribution Strap Adjuster",
-        discipline: "Mechanical",
-        type: "Physical Prototype",
-        region: "General",
-        materials: "Low Cost ($0-$15)",
-        theme: "Accessibility",
-        summary: "Design a simple mechanical add-on strap or mechanical pad that redistributes heavy backpack loads on students' shoulders.",
-        problem: "College students frequently carry 15-20lb backpacks, causing poor posture, shoulder strain, and back discomfort.",
-        scope: "Focus on designing a passive mechanical strap attachment using foam, standard straps, or 3D printed clip mechanism that shifts the load angle by 10-15 degrees.",
-        avoid: "Do not attempt active powered motorized tensioning systems or custom electronic sensor integration.",
-        prototypingMaterials: "Cardboard mockups, density foam, nylon webbing, 3D printed PLA clips or spring buckles.",
-        metrics: "Measure peak contact pressure using basic spring scale pulled against straps or posture angle offset via photo analysis.",
-        deliverable: "Physical strap prototype + force balance diagram + comparative comfort/pressure testing report.",
-        cost: "$5 - $15"
-    },
-    {
-        id: "proj-2",
-        title: "Automated Plant Soil Moisture & Alert Light Indicator",
-        discipline: "Electrical/Computer",
-        type: "Hybrid",
-        region: "General",
-        materials: "Sensor/Microcontroller",
-        theme: "Sustainability",
-        summary: "Build a low-power moisture detection circuit using a Micro:bit or Arduino to visually signal when indoor plants need watering.",
-        problem: "Dorm plants and campus gardens frequently die due to overwatering or underwatering from lack of feedback.",
-        scope: "Wire a simple resistive soil moisture sensor to a Micro:bit or Arduino Uno. Code an LED indicator (Green = Good, Red = Dry) with a low-power sleep state.",
-        avoid: "Avoid Wi-Fi cloud connectivity, complex mobile apps, or automated motorized water pump plumbing.",
-        prototypingMaterials: "BBC Micro:bit or Arduino Uno, soil moisture sensor board, RGB LED, breadboard, jumper wires.",
-        metrics: "Sensor voltage vs moisture level calibration curve (0% to 100% moisture), battery longevity test.",
-        deliverable: "Working sensor breadboard/casing rig + calibration chart + Micro:bit block/C++ code script.",
-        cost: "$15 - $25"
-    },
-    {
-        id: "proj-3",
-        title: "Urban Runoff Rainwater Debris & Sediment Pre-Filter",
-        discipline: "Civil/Environmental",
-        type: "Physical Prototype",
-        region: "General",
-        materials: "Low Cost ($0-$15)",
-        theme: "Sustainability",
-        summary: "Design a multi-stage physical gravity filter attachment for campus downspouts to capture leaves, sand, and micro-debris.",
-        problem: "Stormwater downspouts wash heavy debris into urban storm drains, clogging waterways and damaging aquatic habitats.",
-        scope: "Construct a 3-tier mesh and sand/gravel filter attachment fitting a standard PVC downspout section.",
-        avoid: "Do not attempt chemical water purification testing or biological pathogen analysis.",
-        prototypingMaterials: "PVC pipe fittings, wire mesh screens, coarse sand, gravel, recycled plastic soda bottles.",
-        metrics: "Water flow rate throughput (L/min) vs percentage of particulate mass trapped (turbidity reduction).",
-        deliverable: "Physical filter column prototype + mass balance filtration dataset + CAD cross-section.",
-        cost: "$10 - $20"
-    },
-    {
-        id: "proj-4",
-        title: "Dorm Laundry Queue & Machine Availability Process Redesign",
-        discipline: "Industrial/Process",
-        type: "Process/System",
-        region: "General",
-        materials: "Low Cost ($0-$15)",
-        theme: "Campus Improvement",
-        summary: "Develop an optimized physical-digital visual status board and scheduling workflow to eliminate dorm laundry bottle-necks.",
-        problem: "Students experience severe laundry room congestion, forgotten wet clothes, and wasted trips to full laundry rooms.",
-        scope: "Map the current dorm laundry process workflow, analyze peak traffic times, and design a physical color-coded magnetic visual board and QR digital log system.",
-        avoid: "Do not attempt hardware IoT retrofitting into laundry machine high-voltage electronics.",
-        prototypingMaterials: "Process flowchart software, physical magnetic tracking board mockup, Google Form / QR code entry system.",
-        metrics: "Reduction in average machine idle time and user satisfaction survey score improvement in trials.",
-        deliverable: "Optimized Process Flow Diagram (PFD) + Physical status board mockup + simulated queue time analysis.",
-        cost: "$0 - $10"
-    },
-    {
-        id: "proj-5",
-        title: "Adaptive One-Handed Pill Bottle Opener & Dispenser",
-        discipline: "Biomedical/Assistive",
-        type: "Physical Prototype",
-        region: "General",
-        materials: "Moderate ($15-$35)",
-        theme: "Accessibility",
-        summary: "Create a countertop mechanical assist device that enables individuals with arthritis or one-handed impairment to open push-and-turn bottles.",
-        problem: "Standard child-proof prescription pill bottles are extremely difficult to open for elderly individuals or adults with limited grip strength.",
-        scope: "Design a lever-operated desktop jig that clamps the bottle base and applies torque to the cap using mechanical advantage.",
-        avoid: "Do not attempt motorized electric drives or electronic pill schedule counting alarms.",
-        prototypingMaterials: "3D printed PLA gear or lever arm, high-friction rubber pads, wood/acrylic base plate, standard screws.",
-        metrics: "Required input force reduction (measured in Newtons using a spring scale) vs unassisted opening.",
-        deliverable: "3D printed/assembled desktop opening jig + torque mechanical advantage calculations + trial video.",
-        cost: "$15 - $30"
-    },
-    {
-        id: "proj-6",
-        title: "Passive Smartphone Acoustic Amplifier for Desk / Bedside",
-        discipline: "Mechanical",
-        type: "Physical Prototype",
-        region: "General",
-        materials: "Low Cost ($0-$15)",
-        theme: "Campus Improvement",
-        summary: "Optimize a passive horn/diffuser geometric shape to amplify smartphone speaker decibel output without electricity.",
-        problem: "Smartphone speakers are quiet and directional, requiring battery-draining Bluetooth speakers for basic desk listening.",
-        scope: "Model and test 3 distinct horn/diffuser geometry designs (exponential horn, parabolic flare, conical) to maximize sound volume output.",
-        avoid: "Do not include electronic speakers, amplifiers, or wiring.",
-        prototypingMaterials: "Cardboard, acrylic sheets, 3D printed PLA shapes, sound level meter app or decibel sensor.",
-        metrics: "Decibel (dB) increase over baseline phone speaker across frequencies (200Hz - 4kHz).",
-        deliverable: "Physical horn prototype + frequency response decibel curve chart + CAD geometric files.",
-        cost: "$5 - $15"
-    },
-    {
-        id: "proj-7",
-        title: "Modular Rapid-Deployment Micro Flood Barrier Unit",
-        discipline: "Civil/Environmental",
-        type: "Physical Prototype",
-        region: "General",
-        materials: "Moderate ($15-$35)",
-        theme: "Winter & Infrastructure",
-        summary: "Build an interlocking modular barrier segment that diverts flash flood water away from building doorways.",
-        problem: "Sudden flash floods inundate ground-level doorways before heavy sandbags can be deployed.",
-        scope: "Design interlocking 12-inch wide barrier units with watertight silicone seals that slide together without tools.",
-        avoid: "Do not build full full-scale 10-foot flood gates; focus on a scaled 1:3 prototype test tank.",
-        prototypingMaterials: "Acrylic panels, 3D printed interlocking connectors, foam rubber weather stripping seals, water basin test rig.",
-        metrics: "Water leakage rate (mL/min) under 10cm hydrostatic head pressure.",
-        deliverable: "Scaled interlocking barrier prototype + hydrostatic pressure test video + assembly time data.",
-        cost: "$20 - $35"
-    },
-    {
-        id: "proj-8",
-        title: "Dorm Desk Ergonomic Cable & Power Brick Management Rig",
-        discipline: "Mechanical",
-        type: "Physical Prototype",
-        region: "General",
-        materials: "Low Cost ($0-$15)",
-        theme: "Campus Improvement",
-        summary: "Design a clamping modular desk organization rig that prevents power adapter overheating and cable tangling.",
-        problem: "Student desks are cluttered with heavy power bricks that fall behind desks and overheat under clutter.",
-        scope: "Create a non-damaging desk clamp with passive air ventilation slots and snap-in cable routing channels.",
-        avoid: "Do not modify internal high-voltage wiring or power strip electronics.",
-        prototypingMaterials: "3D printed PLA clamps, laser-cut acrylic or plywood, velcro straps, thumbscrews.",
-        metrics: "Maximum suspended weight load capacity (kg) and surface temperature delta under passive airflow vs enclosed space.",
-        deliverable: "Physical clamp assembly + static load test data + CAD files.",
-        cost: "$10 - $20"
-    },
-    {
-        id: "proj-9",
-        title: "Dining Hall Pre-Consumer Food Waste Sorting System",
-        discipline: "Industrial/Process",
-        type: "Process/System",
-        region: "General",
-        materials: "Low Cost ($0-$15)",
-        theme: "Sustainability",
-        summary: "Design a streamlined kitchen prep sorting station and metric tracking process to reduce food prep waste.",
-        problem: "Campus dining halls throw away tons of edible food scrap during kitchen prep due to unoptimized cutting & sorting procedures.",
-        scope: "Analyze dining kitchen food prep workflow, design a color-coded physical sorting guide rig, and establish a daily audit metric logging template.",
-        avoid: "Do not attempt automated computer-vision waste scanning camera systems.",
-        prototypingMaterials: "Color-coded bin labels, physical sorting template charts, spreadsheet data log templates.",
-        metrics: "Percentage reduction in discarded compostable scrap volume over simulated mock prep trials.",
-        deliverable: "Standard Operating Procedure (SOP) manual + sorting station physical template + waste audit model.",
-        cost: "$5 - $10"
-    },
-    {
-        id: "proj-10",
-        title: "Smart Dorm Room Noise Level Alert Monitor",
-        discipline: "Electrical/Computer",
-        type: "Hybrid",
-        region: "General",
-        materials: "Sensor/Microcontroller",
-        theme: "Campus Improvement",
-        summary: "Build a quiet visual LED indicator that alerts dorm room occupants when sound levels exceed quiet-hour thresholds.",
-        problem: "Noise complaints in residence halls cause roommate friction and study distractions during late hours.",
-        scope: "Connect an analog electret microphone module to a Micro:bit or Arduino to trigger a soft visual warning light (Yellow/Red LED) when dB exceeds threshold.",
-        avoid: "Do not record audio or save speech audio files due to privacy concerns.",
-        prototypingMaterials: "Arduino or Micro:bit, sound level sensor module, Neopixel/LED ring, 3D printed diffuser case.",
-        metrics: "Sensor response threshold accuracy compared against a standard decibel meter app.",
-        deliverable: "Working noise monitor enclosure + sound threshold calibration report + code file.",
-        cost: "$15 - $25"
-    }
-];
-
-let selectedMatrixProjects = [];
-let aiCurrentResultText = "";
-let currentAIMode = "generate";
-
-// Evaluation criteria for Decision Matrix
-const MATRIX_CRITERIA = [
-    { name: "15-Wk Scope Feasibility (1-2 hrs/wk)", weight: 30, desc: "Can realistic testing be completed in ~20 total student hours?" },
-    { name: "Team Interest & Engagement", weight: 20, desc: "How motivated will first-year students be by this topic?" },
-    { name: "Quantitative Testability", weight: 20, desc: "Are key metrics easily measurable with accessible tools?" },
-    { name: "Low Material & Resource Cost", weight: 15, desc: "Are required items under $30 or readily available scrap?" },
-    { name: "Real-World Impact & Relevance", weight: 15, desc: "Does this solve a genuine physical or process problem?" }
-];
-
-window.onload = function() {
-    renderProjectCards(CURATED_PROJECTS);
-    initDecisionMatrix();
-};
-
-function renderProjectCards(projects) {
-    const grid = document.getElementById('ideas-grid');
-    const countEl = document.getElementById('idea-count');
-    
-    countEl.innerText = `Showing ${projects.length} project topic${projects.length === 1 ? '' : 's'}`;
-
-    if (projects.length === 0) {
-        grid.innerHTML = `
-            <div class="col-span-full py-12 text-center text-slate-500 bg-slate-950/50 rounded-2xl border border-slate-800">
-                <i class="fa-solid fa-folder-open text-3xl mb-2 text-slate-600"></i>
-                <p class="text-sm font-medium text-slate-300">No project topics match your selected filters.</p>
-                <button onclick="resetFilters()" class="mt-3 px-3 py-1.5 rounded-lg bg-brand-600 text-white text-xs font-medium hover:bg-brand-500 transition-colors">
-                    Reset All Filters
-                </button>
-            </div>
-        `;
-        return;
-    }
-
-    grid.innerHTML = projects.map(p => `
-        <div class="glass-card glass-card-hover p-5 rounded-2xl flex flex-col justify-between border border-slate-800 relative group">
-            <div class="space-y-3">
-                <!-- Header badges -->
-                <div class="flex items-center justify-between gap-2 flex-wrap">
-                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30">
-                        ${p.discipline}
-                    </span>
-                    <div class="flex items-center gap-1">
-                        ${p.region === 'NW Michigan' ? `
-                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-cyan-950 text-cyan-300 border border-cyan-500/30 flex items-center gap-1">
-                                <i class="fa-solid fa-water text-cyan-400"></i> NMC & NW MI
-                            </span>
-                        ` : ''}
-                        <span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-400">
-                            <i class="fa-solid ${p.type === 'Process/System' ? 'fa-diagram-project' : 'fa-cube'} mr-1"></i>${p.type}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Title & Summary -->
-                <h3 class="font-bold text-slate-100 text-base leading-snug group-hover:text-brand-300 transition-colors">
-                    ${p.title}
-                </h3>
-                <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">
-                    ${p.summary}
-                </p>
-
-                <!-- Key tags -->
-                <div class="pt-2 flex flex-wrap items-center gap-2 text-[10px] text-slate-400 border-t border-slate-800/80">
-                    <span class="flex items-center gap-1"><i class="fa-solid fa-tag text-indigo-400"></i> ${p.theme}</span>
-                    <span class="flex items-center gap-1"><i class="fa-solid fa-wallet text-emerald-400"></i> ${p.materials}</span>
-                </div>
-            </div>
-
-            <!-- Card Actions -->
-            <div class="pt-4 mt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
-                <button onclick="openModal('${p.id}')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors flex items-center gap-1.5">
-                    <i class="fa-solid fa-circle-info text-brand-400"></i> Full Brief
-                </button>
-                <button onclick="addProjectToMatrix('${p.id}')" class="px-3 py-1.5 rounded-lg bg-brand-600/20 hover:bg-brand-600/40 text-brand-300 border border-brand-500/30 text-xs font-medium transition-colors flex items-center gap-1">
-                    <i class="fa-solid fa-plus text-xs"></i> Compare Matrix
-                </button>
-            </div>
-        </div>
-    `).join('');
-}
-
-function filterIdeas() {
-    const search = document.getElementById('search-input').value.toLowerCase();
-    const region = document.getElementById('filter-region').value;
-    const discipline = document.getElementById('filter-discipline').value;
-    const type = document.getElementById('filter-type').value;
-    const materials = document.getElementById('filter-materials').value;
-    const theme = document.getElementById('filter-theme').value;
-
-    const filtered = CURATED_PROJECTS.filter(p => {
-        const matchesSearch = p.title.toLowerCase().includes(search) || 
-                              p.summary.toLowerCase().includes(search) || 
-                              p.problem.toLowerCase().includes(search) ||
-                              p.prototypingMaterials.toLowerCase().includes(search);
-        const matchesRegion = region === 'all' || p.region === region;
-        const matchesDiscipline = discipline === 'all' || p.discipline === discipline;
-        const matchesType = type === 'all' || p.type === type;
-        const matchesMaterials = materials === 'all' || p.materials === materials;
-        const matchesTheme = theme === 'all' || p.theme === theme;
-
-        return matchesSearch && matchesRegion && matchesDiscipline && matchesType && matchesMaterials && matchesTheme;
-    });
-
-    renderProjectCards(filtered);
-}
-
-function resetFilters() {
-    document.getElementById('search-input').value = '';
-    document.getElementById('filter-region').value = 'all';
-    document.getElementById('filter-discipline').value = 'all';
-    document.getElementById('filter-type').value = 'all';
-    document.getElementById('filter-materials').value = 'all';
-    document.getElementById('filter-theme').value = 'all';
-    renderProjectCards(CURATED_PROJECTS);
-}
-
-function switchTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-    document.getElementById(`view-${tabId}`).classList.remove('hidden');
-
-    const navButtons = ['explorer', 'ai', 'matrix', 'roadmap'];
-    navButtons.forEach(b => {
-        const btn = document.getElementById(`tab-${b}`);
-        if (b === tabId) {
-            btn.className = 'px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 bg-brand-600 text-white shadow-md shadow-brand-600/30';
-        } else {
-            btn.className = 'px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-2 text-slate-300 hover:bg-slate-800 hover:text-white';
-        }
-    });
-}
-
-let activeModalProjectId = null;
-
-function openModal(projectId) {
-    const p = CURATED_PROJECTS.find(item => item.id === projectId);
-    if (!p) return;
-
-    activeModalProjectId = projectId;
-    document.getElementById('modal-title').innerText = p.title;
-    document.getElementById('modal-discipline').innerText = p.discipline;
-    document.getElementById('modal-type').innerText = p.type;
-    document.getElementById('modal-region').innerText = p.region === 'NW Michigan' ? 'Northwestern Michigan Focus' : 'Universal Campus';
-    document.getElementById('modal-problem').innerText = p.problem;
-    document.getElementById('modal-scope').innerText = p.scope;
-    document.getElementById('modal-avoid').innerText = p.avoid;
-    document.getElementById('modal-materials').innerText = p.prototypingMaterials;
-    document.getElementById('modal-metrics').innerText = p.metrics;
-    document.getElementById('modal-deliverable').innerText = p.deliverable;
-    document.getElementById('modal-cost').innerText = `Estimated Material Budget: ${p.cost}`;
-
-    document.getElementById('modal-backdrop').classList.remove('hidden');
-}
-
-function closeModal() {
-    document.getElementById('modal-backdrop').classList.add('hidden');
-    activeModalProjectId = null;
-}
-
-function addCurrentModalToMatrix() {
-    if (activeModalProjectId) {
-        addProjectToMatrix(activeModalProjectId);
-        closeModal();
-    }
-}
-
-function setAIMode(mode) {
-    currentAIMode = mode;
-    const btnGen = document.getElementById('mode-btn-gen');
-    const btnCheck = document.getElementById('mode-btn-check');
-    const genGroup = document.getElementById('ai-input-gen-group');
-    const checkGroup = document.getElementById('ai-input-check-group');
-
-    if (mode === 'generate') {
-        btnGen.className = 'py-1.5 text-xs font-medium rounded-md bg-brand-600 text-white transition-all';
-        btnCheck.className = 'py-1.5 text-xs font-medium rounded-md text-slate-400 hover:text-slate-200 transition-all';
-        genGroup.classList.remove('hidden');
-        checkGroup.classList.add('hidden');
-        document.getElementById('ai-submit-btn').innerText = 'Generate Feasible Project Brief';
-    } else {
-        btnCheck.className = 'py-1.5 text-xs font-medium rounded-md bg-brand-600 text-white transition-all';
-        btnGen.className = 'py-1.5 text-xs font-medium rounded-md text-slate-400 hover:text-slate-200 transition-all';
-        checkGroup.classList.remove('hidden');
-        genGroup.classList.add('hidden');
-        document.getElementById('ai-submit-btn').innerText = 'Inspect Feasibility & Refine Scope';
-    }
-}
+let generatedCardsData = [];
 
 async function runAIGenerator() {
     const placeholder = document.getElementById('ai-output-placeholder');
@@ -1103,42 +677,48 @@ async function runAIGenerator() {
 REGIONAL & INSTITUTIONAL CONTEXT (Northwestern Michigan College - NMC & Traverse City Region):
 - Institution: Northwestern Michigan College (NMC) in Traverse City, MI.
 - Key Regional Features: Grand Traverse Bay, Boardman River & Lake, Great Lakes Water Studies Institute, Great Lakes Maritime Academy, local cherry orchards & viticulture/wineries, lake-effect winter conditions, UAV/Aviation.
-- Tailor the problem statement and prototype directly to issues relevant to NMC, Grand Traverse Bay, or Northwestern Michigan agriculture/winter environment.`;
+- Tailor problem statements directly to issues relevant to NMC, Grand Traverse Bay, or Northwestern Michigan agriculture/winter environment.`;
     }
 
     let prompt = "";
     if (currentAIMode === 'generate') {
-        const interest = document.getElementById('ai-interest').value || (isNMCContext ? "Great Lakes water or regional agriculture" : "General campus solution");
+        const ideaCount = document.getElementById('ai-idea-count').value;
+        const hoursBudget = document.getElementById('ai-hours-budget').value;
         const discipline = document.getElementById('ai-discipline').value;
-        const resources = document.getElementById('ai-resources').value || "Cardboard, standard hand tools, basic sensors, 3D printing";
+        const teamSize = document.getElementById('ai-team-size').value;
+        const themeFocus = document.getElementById('ai-theme-focus').value;
+        const interest = document.getElementById('ai-interest').value || (isNMCContext ? "Great Lakes water, cherry agriculture, or regional winter infrastructure" : "General campus engineering challenge");
+        const resources = document.getElementById('ai-resources').value || "Cardboard, standard hand tools, 3D printing, basic sensors";
 
         prompt = `You are an engineering professor at ${isNMCContext ? 'Northwestern Michigan College (NMC)' : 'a university'} teaching an introductory first-year engineering design course.
-Generate ONE highly realistic project topic tailored to these inputs:
+Generate exactly ${ideaCount} DISTINCT, realistic, high-quality project topics tailored to these inputs:
 - Discipline: ${discipline}
-- Student Interest: ${interest}
+- Focus Theme: ${themeFocus}
+- Team Size: ${teamSize}
+- Student Interest Keywords: ${interest}
+- Time Budget Constraint: ${hoursBudget}
 - Available Lab Resources: ${resources}
 ${regionPromptNote}
 
-COURSE CONSTRAINT PARAMETERS (STRICT REQUIREMENT):
+COURSE CONSTRAINT PARAMETERS:
 - Course Duration: 15 weeks
-- Time Commitment: 1 to 2 hours per week per student (~15 to 30 total student-hours max)
-- Project must include: Research, Prototyping (physical or process model), Quantitative Testing, and Data-Driven Refinement.
+- Time Commitment: ${hoursBudget}
+- Must include: Problem Research, Prototyping (physical or process), Quantitative Testing, and Refinement.
 
-Provide the response in structured HTML format using clear section headings:
-1. <h3>PROJECT TITLE</h3>
-2. <p><strong>Problem Statement:</strong> [Real world pain point]</p>
-3. <p><strong>Feasible 15-Week Scope (~20 hrs):</strong> [What to build and test]</p>
-4. <p><strong>Scope Creep Warning (Out of Scope):</strong> [What to avoid]</p>
-5. <p><strong>Suggested Prototyping Materials:</strong> [Low cost tools]</p>
-6. <p><strong>Key Quantitative Test Metrics:</strong> [Exact measurable variables like time, force, flow, dB, etc.]</p>
-7. <p><strong>15-Week Milestone Outline:</strong>
-   - Weeks 1-3: Research & Target Metrics
-   - Weeks 4-6: Pugh Matrix & CAD/Paper Mockups
-   - Weeks 7-9: Prototype V1 Build
-   - Weeks 10-12: Controlled Testing
-   - Weeks 13-15: Final Poster & Showcase
-</p>
-8. <p><strong>Feasibility Rating:</strong> X/10 (Explain why it fits 1-2 hrs/week)</p>`;
+CRITICAL FORMAT INSTRUCTIONS:
+Separate each project using the marker line:
+---PROJECT_SPLIT---
+
+For each project, provide the following structured template:
+TITLE: [Concise Project Title]
+DISCIPLINE: [Discipline]
+PROBLEM: [1-2 sentence real-world problem statement]
+SCOPE: [Feasible 15-week prototype & scope tuned to ${hoursBudget}]
+AVOID: [What scope creep to avoid]
+MATERIALS: [Low-cost prototyping materials]
+METRIC: [Specific quantitative test metric to measure, e.g., flow rate, force, accuracy %]
+FEASIBILITY_SCORE: [X/10]`;
+
     } else {
         const rawIdea = document.getElementById('ai-custom-idea').value;
         if (!rawIdea.trim()) {
@@ -1152,19 +732,18 @@ Provide the response in structured HTML format using clear section headings:
 Student Proposed Idea: "${rawIdea}"
 ${regionPromptNote}
 
-COURSE BENCHMARKS:
-- 15-week course
-- 1 to 2 hours per week per student (~15 to 30 total hours)
-- Must include physical or process prototyping, quantitative testing, and refinement.
+Evaluate this idea and refine it into a feasible 15-week scope.
+Separate your output into 1 project card using marker line:
+---PROJECT_SPLIT---
 
-Evaluate this idea and refine it into a feasible scope:
-Provide the output in structured HTML:
-1. <h3>FEASIBILITY ASSESSMENT & SCOPE REFINEMENT</h3>
-2. <p><strong>Initial Verdict:</strong> [Feasible as-is / Feasible with scope reduction / High risk of scope creep]</p>
-3. <p><strong>Calibrated 15-Week Scope (~20 hrs):</strong> [The trimmed-down version that fits 1-2 hrs/week]</p>
-4. <p><strong>Crucial Scope Cuts (What to remove):</strong> [Features or technologies to drop to stay on schedule]</p>
-5. <p><strong>Suggested Prototyping Approach:</strong> [Low-cost materials and methods]</p>
-6. <p><strong>Quantitative Test Plan:</strong> [Measurable metrics and simple test setup]</p>`;
+TITLE: Scope-Refined: ${rawIdea.substring(0, 35)}...
+DISCIPLINE: Custom / Applied
+PROBLEM: ${rawIdea}
+SCOPE: [Calibrated 15-week scope for 1-2 hrs/week]
+AVOID: [Crucial scope cuts to make]
+MATERIALS: [Suggested low-cost materials]
+METRIC: [Quantitative test plan]
+FEASIBILITY_SCORE: [X/10]`;
     }
 
     const systemPrompt = "You are an expert engineering educator specializing in project-based learning and first-year student scope management.";
@@ -1184,10 +763,10 @@ Provide the output in structured HTML:
         });
 
         const data = await response.json();
-        const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text || "<p>Unable to generate response. Please try again.</p>";
+        const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
         aiCurrentResultText = generatedText;
-        resultContent.innerHTML = formatAIResponse(generatedText);
+        parseAndRenderAICards(generatedText);
 
         loader.classList.add('hidden');
         resultContent.classList.remove('hidden');
@@ -1204,206 +783,98 @@ Provide the output in structured HTML:
     }
 }
 
-// Helper fetch with exponential backoff for API throttling
-async function fetchWithRetry(url, options, retries = 3, backoff = 1000) {
-    try {
-        const res = await fetch(url, options);
-        if (res.status === 429 && retries > 0) {
-            await new Promise(r => setTimeout(r, backoff));
-            return fetchWithRetry(url, options, retries - 1, backoff * 2);
-        }
-        return res;
-    } catch (err) {
-        if (retries > 0) {
-            await new Promise(r => setTimeout(r, backoff));
-            return fetchWithRetry(url, options, retries - 1, backoff * 2);
-        }
-        throw err;
-    }
-}
-
-function formatAIResponse(text) {
-    let html = text
-        .replace(/### (.*?)\n/g, '<h3 class="text-sm font-bold text-brand-300 uppercase tracking-wide border-b border-slate-800 pb-1 mt-3 mb-2">$1</h3>')
-        .replace(/## (.*?)\n/g, '<h2 class="text-base font-bold text-white mt-2 mb-2">$1</h2>')
-        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-100">$1</strong>')
-        .replace(/\n\n/g, '</p><p class="mt-2 text-slate-300">');
-    return `<div class="space-y-2 leading-relaxed">${html}</div>`;
-}
-
-function copyAIResult() {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = aiCurrentResultText;
-    const plainText = tempDiv.innerText || tempDiv.textContent;
-
-    const textarea = document.createElement('textarea');
-    textarea.value = plainText;
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-        document.execCommand('copy');
-        alert('Copied AI project brief to clipboard!');
-    } catch (e) {
-        console.error('Copy failed', e);
-    }
-    document.body.removeChild(textarea);
-}
-
-function addAIResultToMatrix() {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = aiCurrentResultText;
-    const titleMatch = tempDiv.querySelector('h3') || tempDiv.querySelector('strong');
-    const title = titleMatch ? titleMatch.innerText.replace("PROJECT TITLE:", "").trim() : "Custom AI Project";
-
-    const customObj = {
-        id: "ai-" + Date.now(),
-        title: title.length > 45 ? title.substring(0, 42) + "..." : title,
-        discipline: "AI Custom",
-        type: "Hybrid/Custom",
-        region: "Custom Context",
-        materials: "Flexible",
-        theme: "Tailored",
-        summary: "Custom AI-generated feasible 15-week project brief.",
-        problem: "AI Custom problem statement.",
-        scope: "Feasible 15-week scope.",
-        avoid: "Out-of-scope factors.",
-        prototypingMaterials: "Prototyping materials.",
-        metrics: "Quantitative test metrics.",
-        deliverable: "Final deliverable project model.",
-        cost: "Variable"
-    };
-
-    addProjectObjectToMatrix(customObj);
-    switchTab('matrix');
-}
-
-function initDecisionMatrix() {
-    const tbody = document.getElementById('matrix-body');
+function parseAndRenderAICards(text) {
+    const container = document.getElementById('ai-result-content');
+    const rawBlocks = text.split('---PROJECT_SPLIT---').filter(b => b.trim().length > 15);
     
-    tbody.innerHTML = MATRIX_CRITERIA.map((crit, idx) => `
-        <tr class="hover:bg-slate-900/50 transition-colors">
-            <td class="p-3">
-                <div class="font-semibold text-slate-200">${crit.name}</div>
-                <div class="text-[10px] text-slate-500">${crit.desc}</div>
-            </td>
-            <td class="p-3 text-center text-brand-400 font-medium">${crit.weight}%</td>
-            <td class="p-3 border-l border-slate-800 text-center">
-                <select onchange="updateMatrixScores()" id="score-${idx}-0" class="matrix-input bg-slate-950 border border-slate-800 rounded px-2 py-1 text-slate-200 text-xs w-16 text-center">
-                    <option value="1">1 (Low)</option>
-                    <option value="2">2</option>
-                    <option value="3" selected>3 (Avg)</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (High)</option>
-                </select>
-            </td>
-            <td class="p-3 border-l border-slate-800 text-center">
-                <select onchange="updateMatrixScores()" id="score-${idx}-1" class="matrix-input bg-slate-950 border border-slate-800 rounded px-2 py-1 text-slate-200 text-xs w-16 text-center">
-                    <option value="1">1 (Low)</option>
-                    <option value="2">2</option>
-                    <option value="3" selected>3 (Avg)</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (High)</option>
-                </select>
-            </td>
-            <td class="p-3 border-l border-slate-800 text-center">
-                <select onchange="updateMatrixScores()" id="score-${idx}-2" class="matrix-input bg-slate-950 border border-slate-800 rounded px-2 py-1 text-slate-200 text-xs w-16 text-center">
-                    <option value="1">1 (Low)</option>
-                    <option value="2">2</option>
-                    <option value="3" selected>3 (Avg)</option>
-                    <option value="4">4</option>
-                    <option value="5">5 (High)</option>
-                </select>
-            </td>
-        </tr>
-    `).join('');
+    generatedCardsData = [];
 
-    // Load default top 2 regional projects into matrix initially
-    addProjectToMatrix("proj-nmc-1");
-    addProjectToMatrix("proj-nmc-2");
-}
-
-function addProjectToMatrix(projectId) {
-    const p = CURATED_PROJECTS.find(item => item.id === projectId);
-    if (p) {
-        addProjectObjectToMatrix(p);
-    }
-}
-
-function addProjectObjectToMatrix(projectObj) {
-    if (selectedMatrixProjects.length >= 3) {
-        alert("The matrix supports up to 3 project topics at a time for comparison. Please remove one to add another.");
-        return;
-    }
-    
-    // Avoid duplicate addition
-    if (selectedMatrixProjects.some(item => item.id === projectObj.id)) {
-        alert("This project is already in your Decision Matrix!");
+    if (rawBlocks.length === 0) {
+        // Fallback formatting if raw text didn't split
+        container.innerHTML = formatAIResponse(text);
         return;
     }
 
-    selectedMatrixProjects.push(projectObj);
-    updateMatrixHeaders();
-    updateMatrixScores();
+    let cardsHTML = `<div class="space-y-4">`;
+
+    rawBlocks.forEach((block, index) => {
+        const getField = (tag) => {
+            const regex = new RegExp(`${tag}:\\s*(.*?)(?=(TITLE:|DISCIPLINE:|PROBLEM:|SCOPE:|AVOID:|MATERIALS:|METRIC:|FEASIBILITY_SCORE:|$))`, 's');
+            const match = block.match(regex);
+            return match ? match[1].trim() : '';
+        };
+
+        const title = getField('TITLE') || `Generated Idea #${index + 1}`;
+        const discipline = getField('DISCIPLINE') || 'Engineering';
+        const problem = getField('PROBLEM') || 'Problem description provided in details.';
+        const scope = getField('SCOPE') || '15-week prototype scope.';
+        const avoid = getField('AVOID') || 'High complexity setups.';
+        const materials = getField('MATERIALS') || 'Low-cost prototyping supplies.';
+        const metric = getField('METRIC') || 'Quantitative performance metric.';
+        const score = getField('FEASIBILITY_SCORE') || '8/10';
+
+        const cardObj = {
+            id: 'ai-gen-' + Date.now() + '-' + index,
+            title: title.replaceAll('*', ''),
+            discipline: discipline.replaceAll('*', ''),
+            type: 'AI Custom',
+            region: document.getElementById('ai-region-context').value === 'nmc' ? 'NW Michigan' : 'General',
+            materials: 'Low Cost / Lab Tools',
+            theme: 'Tailored Focus',
+            summary: scope,
+            problem: problem,
+            scope: scope,
+            avoid: avoid,
+            prototypingMaterials: materials,
+            metrics: metric,
+            deliverable: '15-Week Prototype & Data Report',
+            cost: '$10 - $30'
+        };
+
+        generatedCardsData.push(cardObj);
+
+        cardsHTML += `
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-brand-500/40 transition-all space-y-3">
+                <div class="flex items-start justify-between gap-2">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-500/20 text-brand-300 border border-brand-500/30">
+                                ${cardObj.discipline}
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                Feasibility: ${score}
+                            </span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white leading-snug">${index + 1}. ${cardObj.title}</h3>
+                    </div>
+                    <button onclick="addGeneratedCardToMatrix(${index})" class="px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-medium transition-colors flex items-center gap-1 shrink-0">
+                        <i class="fa-solid fa-plus text-[10px]"></i> Add Matrix
+                    </button>
+                </div>
+
+                <div class="space-y-1.5 text-[11px] text-slate-300">
+                    <p><strong class="text-slate-100">Problem:</strong> ${problem}</p>
+                    <p><strong class="text-brand-300">15-Wk Scope:</strong> ${scope}</p>
+                    <p><strong class="text-amber-400">Out of Scope:</strong> ${avoid}</p>
+                </div>
+
+                <div class="pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-[10px] text-slate-400 gap-2">
+                    <span><i class="fa-solid fa-hammer text-indigo-400 mr-1"></i> <strong>Materials:</strong> ${materials}</span>
+                    <span><i class="fa-solid fa-vial text-emerald-400 mr-1"></i> <strong>Metric:</strong> ${metric}</span>
+                </div>
+            </div>
+        `;
+    });
+
+    cardsHTML += `</div>`;
+    container.innerHTML = cardsHTML;
+    document.getElementById('ai-status-summary').innerText = `Generated ${generatedCardsData.length} calibrated project briefs`;
 }
 
-function removeMatrixSlot(index) {
-    if (index < selectedMatrixProjects.length) {
-        selectedMatrixProjects.splice(index, 1);
-        updateMatrixHeaders();
-        updateMatrixScores();
-    }
-}
-
-function clearMatrix() {
-    selectedMatrixProjects = [];
-    updateMatrixHeaders();
-    updateMatrixScores();
-}
-
-function updateMatrixHeaders() {
-    for (let slot = 0; slot < 3; slot++) {
-        const colEl = document.getElementById(`col-slot-${slot}`);
-        const badgeEl = document.getElementById('matrix-badge');
-
-        if (slot < selectedMatrixProjects.length) {
-            const p = selectedMatrixProjects[slot];
-            colEl.querySelector('.slot-title').innerHTML = `
-                <span class="block text-xs font-bold text-slate-100 truncate max-w-[160px]">${p.title}</span>
-                <span class="text-[9px] font-normal text-brand-300 block">${p.discipline}</span>
-            `;
-        } else {
-            colEl.querySelector('.slot-title').innerHTML = `<span class="text-slate-600 font-normal italic">+ Add Option ${slot + 1}</span>`;
-        }
-    }
-
-    // Update count badge in navigation
-    const badge = document.getElementById('matrix-badge');
-    badge.innerText = selectedMatrixProjects.length;
-    if (selectedMatrixProjects.length > 0) {
-        badge.classList.remove('hidden');
-        badge.classList.add('flex');
-    } else {
-        badge.classList.add('hidden');
-        badge.classList.remove('flex');
-    }
-}
-
-function updateMatrixScores() {
-    for (let slot = 0; slot < 3; slot++) {
-        let totalWeightedScore = 0;
-
-        if (slot < selectedMatrixProjects.length) {
-            MATRIX_CRITERIA.forEach((crit, critIdx) => {
-                const selectEl = document.getElementById(`score-${critIdx}-${slot}`);
-                if (selectEl) {
-                    const score = parseFloat(selectEl.value) || 0;
-                    totalWeightedScore += (score * (crit.weight / 100));
-                }
-            });
-            document.getElementById(`score-${slot}`).innerText = totalWeightedScore.toFixed(2);
-        } else {
-            document.getElementById(`score-${slot}`).innerText = "0.0";
-        }
+function addGeneratedCardToMatrix(index) {
+    if (generatedCardsData[index]) {
+        addProjectObjectToMatrix(generatedCardsData[index]);
+        switchTab('matrix');
     }
 }
 </script>
